@@ -1,4 +1,4 @@
-var app = angular.module('simplreApp', ['ui.router']);
+var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
