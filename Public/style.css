@@ -1,4 +1,16 @@
-.test{
+.main-layout{
+  margin: 0;
+  overflow-y: scroll;
+}
+
+.testRed{
   min-height: 40px;
   background-color: red;
+}
+
+.testBlue{
+  min-height: 40px;
+  max-height: 90%;
+  background-color: blue;
+  overflow-y: scroll;
 }

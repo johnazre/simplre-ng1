@@ -1,3 +1,3 @@
-angular.module('simplreApp').controller('RegisterCtrl', function ($scope, RegistrationSvc) {
+angular.module('simplreApp').controller('RegisterCtrl', function ($scope, RegisterSvc) {
 
 });

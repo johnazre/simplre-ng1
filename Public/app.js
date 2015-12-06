@@ -1,6 +1,6 @@
 var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
         .state('home', {
@@ -14,10 +14,20 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             controller: 'RegisterCtrl'
         })
         .state('login', {
-            url: 'login',
+            url: '/login',
             templateUrl: 'Templates/login.html',
             controller: 'RegisterCtrl'
+        })
+        .state('dashboard', {
+            url: '/dashboard',
+            templateUrl: 'Templates/dashboard.html',
+            controller: 'MainCtrl'
         });
+
+        // $locationProvider.html5Mode({
+        //   enabled: true,
+        //   requireBase: false
+        // });
 
     $urlRouterProvider
         .otherwise('/');

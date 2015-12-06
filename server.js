@@ -4,7 +4,7 @@ var cors = require('cors');
 var mongoose = require('mongoose');
 
 var app = express();
-var port = 8080;
+var port = 8000;
 
 //----------Fluff------------//
 app.use(bodyParser.json());
