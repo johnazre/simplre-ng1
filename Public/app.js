@@ -18,9 +18,24 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: 'Templates/login.html',
             controller: 'RegisterCtrl'
         })
-        .state('dashboard', {
+        .state('user', {
+            url: '/user',
+            templateUrl: 'Templates/user.html',
+            controller: 'MainCtrl'
+        })
+        .state('user.dashboard', {
             url: '/dashboard',
             templateUrl: 'Templates/dashboard.html',
+            controller: 'MainCtrl'
+        })
+        .state('user.goals', {
+            url: '/usergoals',
+            templateUrl: 'Templates/goals.html',
+            controller: 'MainCtrl'
+        })
+        .state('user.inventory', {
+            url: '/inventory',
+            templateUrl: 'Templates/inventory.html',
             controller: 'MainCtrl'
         });
 

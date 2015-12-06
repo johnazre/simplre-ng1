@@ -4,19 +4,16 @@ angular.module('simplreApp').controller('MainCtrl', function ($scope, MainSvc) {
   };
  	$scope.menu = [
     {
-      link : '',
-      title: 'Dashboard',
-      icon: 'dashboard'
+      link : 'user.dashboard',
+      title: 'Dashboard'
     },
     {
-      link : '',
-      title: 'Friends',
-      icon: 'group'
+      link : 'user.goals',
+      title: 'My Goals',
     },
     {
-      link : '',
-      title: 'Messages',
-      icon: 'message'
+      link : 'user.inventory',
+      title: 'Inventory',
     }
   ];
   $scope.admin = [
