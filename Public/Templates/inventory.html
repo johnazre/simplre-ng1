@@ -5,53 +5,113 @@
         <span>Current Listings</span>
       </h2>
       <md-menu>
-        <md-button aria-label="Open phone interactions menu" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
-          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_36px.svg"></md-icon>
+        <md-button aria-label="addListings" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
+          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
         </md-button>
-        <md-menu-content width="2">
+        <md-menu-content width="4">
           <md-menu-item>
-            <md-button ng-click="">
+            <md-button ng-click="" aria-label="addListing">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
               Add Listing...
             </md-button>
-            <md-button></md-menu-item>
+            </md-menu-item>
           </md-menu-content>
         </md-menu>
       </div>
     </md-toolbar>
 
-  <md-whiteframe class="md-whiteframe-6dp" flex-gt-md="25" flex-gt-sm="35" flex-sm="45" layout layout-align="center center">
-    <div class="">
-      <img src="http://placehold.it/550x150">
-    </div>
-  </md-whiteframe>
-  
-</div>
+    <md-content>
+      <md-list>
+        <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
+        <md-list-item class="md-3-line" ng-click="showTabDialog($event)" ng-repeat="listing in listings">
+          <div class="md-list-item-text">
+            <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
+            <h3>{{listing.address}}</h3>
+            <h4>{{listing.listPrice}}</h4>
+            <p>{{listing.sellerName}}</p>
+          </div>
+        <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
 
-  <div class="listings-container" style="margin-bottom: 10px;">
-    <md-toolbar layout-align='center end'>
-      <div class="md-toolbar-tools">
-        <h2>
-          <span>Current Buyers</span>
-        </h2>
-        <md-menu>
-          <md-button aria-label="Open phone interactions menu" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
-            <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_36px.svg"></md-icon>
-          </md-button>
-          <md-menu-content width="2">
-            <md-menu-item>
-              <md-button ng-click="">
-                Add Buyer...
-              </md-button>
-              <md-button></md-menu-item>
-          </md-menu-content>
-        </md-menu>
-      </div>
-    </md-toolbar>
-  </div>
+    </md-content>
 
-  <md-whiteframe class="md-whiteframe-6dp" flex-gt-md="25" flex-gt-sm="35" flex-sm="45" layout layout-align="center center">
-    <div class="">
-      <img src="http://placehold.it/550x150">
+</div> <!-- End of listings container -->
+
+<div class="buyers-container" style="margin-bottom: 10px;">
+  <md-toolbar layout-align='center end'>
+    <div class="md-toolbar-tools">
+      <h2>
+        <span>Current Buyers</span>
+      </h2>
+      <md-menu>
+        <md-button aria-label="addBuyers" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
+          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button ng-click="" aria-label='addBuyer'>
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
+              Add Buyer...
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </div>
-  </md-whiteframe>
-</div>
+  </md-toolbar>
+  <md-content>
+    <md-list>
+      <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
+      <md-list-item class="md-3-line" ng-click="showTabDialog($event)" ng-repeat="listing in listings">
+        <div class="md-list-item-text">
+          <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
+          <h3>{{listing.address}}</h3>
+          <h4>{{listing.listPrice}}</h4>
+          <p>{{listing.sellerName}}</p>
+        </div>
+      <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+
+  </md-content>
+
+</div> <!-------------- End of Buyers container ---------------->
+
+<div class="closed-container" style="margin-bottom: 10px;">
+  <md-toolbar layout-align='center end'>
+    <div class="md-toolbar-tools">
+      <h2>
+        <span>Closed</span>
+      </h2>
+      <md-menu>
+        <md-button aria-label="addClosing" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
+          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button ng-click="" aria-label='addBuyer'>
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
+              Add Closing...
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+  <md-content>
+    <md-list>
+      <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
+      <md-list-item class="md-3-line" ng-click="showTabDialog($event)" ng-repeat="listing in listings">
+        <div class="md-list-item-text">
+          <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
+          <h3>{{listing.address}}</h3>
+          <h4>{{listing.listPrice}}</h4>
+          <p>{{listing.sellerName}}</p>
+        </div>
+      <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+
+  </md-content>
+
+</div> <!-------------- End of Closed container ---------------->
