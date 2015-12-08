@@ -20,7 +20,9 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     title: 'Log Out',
   }];
 
-
+  $scope.getValue = function () {
+    console.log($scope.user.listingSigned);
+  }
 
   $scope.listings = [{
     address: '123 Main Street, Tucson, AZ 85701',
