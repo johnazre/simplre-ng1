@@ -60,6 +60,10 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
       })
   };
 
+  $scope.invStatus = ('Pre-signed Active Pending Closed Cancelled').split(' ').map(function(status) {
+        return {abbrev: status};
+      })
+
 });
 
 function DialogController($scope, $mdDialog, $mdMedia) {

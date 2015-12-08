@@ -44,6 +44,74 @@
               Mortgage Company
               Title/Escrow Company
 
+              <md-content layout-padding layout-sm="column" layout="row">
+                <!-- Status -->
+                <md-input-container flex>
+                  <label>Status</label>
+                  <md-select ng-model="user.status">
+                    <md-option ng-repeat="status in invStatus" value="{{status.abbrev}}">
+                      {{status.abbrev}}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </md-content>
+              <!-- Client Names -->
+              <md-content layout-padding>
+                <form name="userForm">
+                  <div layout layout-sm="column">
+                    <md-input-container flex>
+                      <label>Clients</label>
+                      <input ng-model="user.clients">
+                    </md-input-container>
+                    <md-input-container flex>
+                      <label>Source</label>
+                      <input ng-model="user.clientSource"/>
+                    </md-input-container>
+                  </div>
+                </form>
+              </md-content>
+              <md-content layout-padding>
+                <form>
+                  <div layout="row">
+                    <md-input-container flex>
+                      <md-datepicker ng-model="user.listingSigned" md-placeholder="Listing signed date"></md-datepicker>
+                      <md-datepicker ng-model="user.listingExp" md-placeholder="Expiration date"></md-datepicker>
+                    </md-input-container>
+                  </div>
+                </md-content>
+                <md-content layout-padding>
+                  <md-input-container class="md-block">
+                    <label>Address</label>
+                    <input ng-model="user.address">
+                  </md-input-container>
+                  <md-input-container class="md-block" md-no-float>
+                    <input ng-model="user.address2" placeholder="Address 2">
+                  </md-input-container>
+                  <div layout layout-sm="column">
+                    <md-input-container flex>
+                      <label>City</label>
+                      <input ng-model="user.city">
+                    </md-input-container>
+                    <md-input-container flex>
+                      <label>State</label>
+                      <md-select ng-model="user.state">
+                        <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                          {{state.abbrev}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                      <label>Postal Code</label>
+                      <input md-maxlength="5" name="postalCode" ng-model="user.postalCode" ng-pattern="/^[0-9]{5}$/" placeholder="12345" required>
+                    </md-input-container>
+                  </div>
+                  <md-input-container class="md-block">
+                    <label>Biography</label>
+                    <textarea columns="1" md-maxlength="150" ng-model="user.biography" rows="5"></textarea>
+                  </md-input-container>
+                </form>
+              </md-content>
+
           </md-content>
         </md-tab>
         <md-tab label="Milestone Checklist">
@@ -58,6 +126,46 @@
             <p class="md-display-2">
               Forms Checklist:
             </p>
+            Required:
+            Greensheet
+            MLS Printout
+            READE
+            Buyer/Broker
+            ABA
+            Counter offers
+            Purchase contract
+            EM Recpt
+            Buyer Advisory
+            Mold Disclosure
+
+            Possible:
+            Limited Rep
+            Pre-qual
+            POF
+            FHA
+            HOA
+            Short Sale add
+            as-is
+            LBP
+            Pool
+            On-site wastewater add
+            Mil/public airport disclosure
+            Unrepresented Seller Compensation
+
+            Trailing docs:
+            SPDS
+            BINSR
+            CLUE
+            Final walkthrough
+            LSU
+            Price Change or misc addendums
+            Short sale agreement notification
+            Water/Well SPDS
+            Power of Attorney/Trustee/Personal Rep Auth
+
+            If Res Income:
+            Res income add
+            res income add to spds
           </md-content>
         </md-tab>
       </md-tabs>
