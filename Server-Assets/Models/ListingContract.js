@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
-var listingSchema = new mongoose.Schema({
+var ListingContractSchema = new mongoose.Schema({
+  client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
   address: {
     type: String,
     required: true,
@@ -45,6 +46,6 @@ var listingSchema = new mongoose.Schema({
   mortgageCompany: String,
   titleEscrowCompany: String,
 
-}, {collection: 'inventoryListings'} );
+}, {collection: 'ListingContracts'} );
 
-module.exports = mongoose.model('Listing', listingSchema);
+module.exports = mongoose.model('ListingContract', ListingContractSchema);

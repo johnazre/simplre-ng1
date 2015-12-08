@@ -1,9 +1,9 @@
-var Listing = require('../Models/ListingContract');
+var Purchase = require('../Models/PurchaseContract');
 
 module.exports = {
   create: function(req, res) {
-    var newListing = new Listing(req.body);
-    newListing.save( function(err, result) {
+    var newPurchase = new Purchase(req.body);
+    newPurchase.save( function(err, result) {
       if (err) return res.status(500).send(err);
       res.send(result);
     });
@@ -11,7 +11,7 @@ module.exports = {
 
   read: function(req, res) {
     console.log('req.query: ', req.query);
-    Listing.find(req.query)
+    Purchase.find(req.query)
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);
       res.send(result);
@@ -19,14 +19,14 @@ module.exports = {
   },
 
   update: function(req, res) {
-    Listing.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+    Purchase.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
       if (err) return res.status(500).send(err);
       res.send(result);
     });
   },
 
   delete: function(req, res) {
-    Listing.findByIdAndRemove(req.params.id, function(err, result) {
+    Purchase.findByIdAndRemove(req.params.id, function(err, result) {
       if (err) return res.status(500).send(err);
       res.send(result);
     });

@@ -7,6 +7,8 @@ var app = express();
 var port = 8000;
 
 var ListingCtrl = require('./Server-Assets/Controllers/ListingCtrl');
+var PurchaseCtrl = require('./Server-Assets/Controllers/PurchaseCtrl');
+var ClientCtrl = require('./Server-Assets/Controllers/ClientCtrl');
 
 //----------Fluff------------//
 app.use(bodyParser.json());
@@ -23,17 +25,17 @@ mongoose.connection.once('connected', function() {
 })
 
 //-----------Listing Endpoints-----------//
-app.get('/api/inventory/listings', ListingCtrl.read);
-app.post('/api/inventory/listings', ListingCtrl.create);
-app.put('/api/inventory/listings', ListingCtrl.update);
-app.delete('/api/inventory/listings', ListingCtrl.delete);
+app.get('/api/listings', ListingCtrl.read);
+app.post('/api/listings', ListingCtrl.create);
+app.put('/api/listings', ListingCtrl.update);
+app.delete('/api/listings', ListingCtrl.delete);
 
-app.get('/api/inventory/buyers', BuyerCtrl.read);
-app.post('/api/inventory/buyers', BuyerCtrl.create);
-app.put('/api/inventory/buyers', BuyerCtrl.update);
-app.delete('/api/inventory/buyers', BuyerCtrl.delete);
+app.get('/api/buyers', PurchaseCtrl.read);
+app.post('/api/buyers', PurchaseCtrl.create);
+app.put('/api/buyers', PurchaseCtrl.update);
+app.delete('/api/buyers', PurchaseCtrl.delete);
 
-app.get('/api/user', UserCtrl.read);
-app.post('/api/user', UserCtrl.create);
-app.put('/api/user', UserCtrl.update);
-app.delete('/api/user', UserCtrl.delete);
+app.get('/api/client', ClientCtrl.read);
+app.post('/api/client', ClientCtrl.create);
+app.put('/api/client', ClientCtrl.update);
+app.delete('/api/client', ClientCtrl.delete);
