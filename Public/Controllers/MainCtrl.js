@@ -20,22 +20,7 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     title: 'Log Out',
   }];
 
-  $scope.messages = [{
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }];
+
 
   $scope.listings = [{
     address: '123 Main Street, Tucson, AZ 85701',
@@ -65,10 +50,10 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
 
 
 
-  $scope.showTabDialog = function(ev) {
+  $scope.ShowInventoryModal = function(ev) {
     $mdDialog.show({
         controller: DialogController,
-        templateUrl: 'Templates/testTemplate.html',
+        templateUrl: 'Templates/inventoryModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true

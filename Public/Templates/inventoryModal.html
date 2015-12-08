@@ -1,0 +1,76 @@
+<md-dialog aria-label="Mango (Fruit)" ng-controller="MainCtrl">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{listings.address[0]}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon md-svg-src="img/ic_clear_white_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px;">
+      <md-tabs md-dynamic-height md-border-bottom md-theme="green">
+        <md-tab label="Property Details">
+          <md-content class="md-padding">
+            <p class="md-display-2">
+              Property Details Form
+            </p>
+
+            Necessary fields:
+              Type: Buyer/Seller
+              status
+              address
+              clients
+              source
+              listing-signed-date
+              listing/buyer-broker date
+              Expiration date
+              Under Contract Date
+              Projected close date
+              Close date
+              List/Buy Price
+              Sale Price
+              Commission Percentage
+              Units
+              GCI
+              Transaction Fee?
+              Company dollar
+              Royalty
+              Referral paid
+              E&O
+              Inspection Date
+              Appraisal Date
+              Mortgage Company
+              Title/Escrow Company
+
+          </md-content>
+        </md-tab>
+        <md-tab label="Milestone Checklist">
+          <md-content class="md-padding">
+            <p class="md-display-2">
+              Activity Checklist:
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Forms Checklist">
+          <md-content class="md-padding">
+            <p class="md-display-2">
+              Forms Checklist:
+            </p>
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="answer('not useful')" >
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;" >
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
