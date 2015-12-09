@@ -43,10 +43,10 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
   };
 
   //------------ Opens the modal --------------//
-  $scope.ShowInventoryModal = function(ev) {
+  $scope.addClientModal = function(ev) {
     $mdDialog.show({
         controller: DialogController,
-        templateUrl: 'Templates/buyerInputForm.html',
+        templateUrl: 'Templates/clientInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
