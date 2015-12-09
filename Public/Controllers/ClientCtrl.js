@@ -1,15 +1,48 @@
-angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainSvc, $mdDialog, $mdMedia) {
-  //Create a "status" array for active/closed/whatever
+angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialog, $mdMedia) {
 
+  $scope.clients = [
+    {
+      name: "John Doe",
+      email: "john@doe.com",
+      phone: "555-555-5555",
+      type: 'Seller',
+      sellerStatus: "Intereted",
+      source: "Friend"
+    },
+    {
+      name: "John Doe",
+      email: "john@doe.com",
+      phone: "555-555-5555",
+      type: 'Seller',
+      sellerStatus: "Intereted",
+      source: "Friend"
+    },
+    {
+      name: "John Doe",
+      email: "john@doe.com",
+      phone: "555-555-5555",
+      type: 'Seller',
+      sellerStatus: "Intereted",
+      source: "Friend"
+    },
+    {
+      name: "John Doe",
+      email: "john@doe.com",
+      phone: "555-555-5555",
+      type: 'Seller',
+      sellerStatus: "Intereted",
+      source: "Friend"
+    },
+  ];
+
+  //------------ Opens hamburger menu on the top-right --------------//
   var originatorEv;
   $scope.openMenu = function($mdOpenMenu, ev) {
     originatorEv = ev;
     $mdOpenMenu(ev);
   };
 
-  $scope.status = '  ';
-  $scope.customFullscreen = $mdMedia('sm');
-
+  //------------ Opens the modal --------------//
   $scope.ShowInventoryModal = function(ev) {
     $mdDialog.show({
         controller: DialogController,
@@ -19,31 +52,6 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
         clickOutsideToClose: true
       })
   };
-
-  $scope.showAddListingModal = function(ev) {
-    $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'Templates/propertyDetailsForm.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      })
-  };
-
-  $scope.showAddBuyerModal = function(ev) {
-    $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'Templates/buyerInputForm.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      })
-  };
-
-  $scope.invStatus = ('Pre-signed Active Pending Closed Cancelled').split(' ').map(function(status) {
-        return {abbrev: status};
-      });
-
 
 });
 

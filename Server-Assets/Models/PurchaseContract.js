@@ -19,10 +19,8 @@ var PurchaseContractSchema = new mongoose.Schema({
   contractSignedDate: Date,
   projectedCloseDate: Date,
   actualCloseDate: Date,
-  listPrice: {
-    type: Number,
-    required: true,
-  },
+  listPrice: Number,
+  offerPrice: Number,
   salePrice: Number,
   commissionPercentage: Number,
   units: Number,

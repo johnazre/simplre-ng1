@@ -10,7 +10,7 @@
         </md-button>
         <md-menu-content width="4">
           <md-menu-item>
-            <md-button ng-click="" aria-label="addListing">
+            <md-button aria-label="addListing" ng-click="showAddListingModal($event)">
               <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
             <p style="color:black;">
                Add Listing...
@@ -52,7 +52,7 @@
         </md-button>
         <md-menu-content width="4">
           <md-menu-item>
-            <md-button ng-click="" aria-label='addBuyer'>
+            <md-button ng-click="showAddBuyerModal($event)" aria-label='addBuyer'>
               <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
               <p style="color:black;">
                 Add Buyer...

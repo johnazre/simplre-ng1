@@ -31,12 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         .state('user.clients', {
             url: '/clients',
             templateUrl: 'Templates/clients.html',
-            controller: 'MainCtrl'
+            controller: 'ClientCtrl'
         })
         .state('user.inventory', {
             url: '/inventory',
             templateUrl: 'Templates/inventory.html',
-            controller: 'MainCtrl'
+            controller: 'InventoryCtrl'
         });
 
         // $locationProvider.html5Mode({

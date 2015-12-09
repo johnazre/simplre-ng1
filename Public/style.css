@@ -2,3 +2,11 @@
   margin: 0;
   overflow-y: scroll;
 }*/
+
+.form-control{
+  width: 80%;
+}
+
+,form-group{
+  margin-left: -100px;
+}
