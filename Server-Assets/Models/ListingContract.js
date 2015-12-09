@@ -19,7 +19,12 @@ var ListingContractSchema = new mongoose.Schema({
   },
   source: {
     type: String,
-    required: true
+    enum: [
+      'Friend',
+      'Family',
+      'Lead Website',
+      'Other'
+    ]
   },
   listingSignedDate: Date,
   listingExpirationDate: Date,

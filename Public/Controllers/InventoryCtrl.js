@@ -7,13 +7,13 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
     $mdOpenMenu(ev);
   };
 
-  $scope.status = '  ';
-  $scope.customFullscreen = $mdMedia('sm');
 
-  $scope.ShowInventoryModal = function(ev) {
+
+  $scope.ShowListingModal = function(ev) {
+    console.log('test');
     $mdDialog.show({
         controller: DialogController,
-        templateUrl: 'Templates/buyerInputForm.html',
+        templateUrl: 'Templates/listingInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
@@ -23,7 +23,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
   $scope.showAddListingModal = function(ev) {
     $mdDialog.show({
         controller: DialogController,
-        templateUrl: 'Templates/propertyDetailsForm.html',
+        templateUrl: 'Templates/listingInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
@@ -39,10 +39,6 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
         clickOutsideToClose: true
       })
   };
-
-  $scope.invStatus = ('Pre-signed Active Pending Closed Cancelled').split(' ').map(function(status) {
-        return {abbrev: status};
-      });
 
 
 });

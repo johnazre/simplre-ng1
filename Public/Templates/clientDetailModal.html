@@ -1,0 +1,95 @@
+<div class="container">
+  <form class="form-horizontal">
+    <fieldset id='editClientAttr' disabled="true">
+
+      <!-- Form Name -->
+      <legend>Add Client</legend>
+
+      <!-- Client Name-->
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="clientName">Name</label>
+        <div class="col-md-6">
+        <input id="clientName" name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Client Email -->
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="clientEmail">Email</label>
+        <div class="col-md-6">
+        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Client Phone-->
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="clientPhone">Phone</label>
+        <div class="col-md-6">
+        <input id="clientPhone" name="clientPhone" type="text" placeholder="(555)555-5555..." class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Client Type (Buyer or Seller) -->
+      <div class="form-group" id='clientType'>
+        <label class="col-md-3 control-label" for="clientType">Type</label>
+        <div class="col-md-6">
+          <select id="clientType" name="clientType" class="form-control">
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group" id="buyerStatus">
+        <label class="col-md-3 control-label" for="buyerStatus">Buyer Status</label>
+        <div class="col-md-6">
+          <select id="buyerStatus" name="buyerStatus" class="form-control">
+            <option value="Pre-Approved">Pre-Approved</option>
+            <option value="Searching">Searching</option>
+            <option value="Under Contract">Under Contract</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group" id="sellerStatus">
+        <label class="col-md-3 control-label" for="sellerStatus">Seller Status</label>
+        <div class="col-md-6">
+          <select id="sellerStatus" name="sellerStatus" class="form-control">
+            <option value="Undecided">Undecided</option>
+            <option value="Interested">Interested</option>
+            <option value="Currently Listing">Currently Listing</option>
+            <option value="Closed">Closed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-3 control-label" for="clientSource">Source</label>
+        <div class="col-md-6">
+        <input id="clientSource" name="clientSource" type="text" placeholder="Source" class="form-control input-md">
+        </div>
+      </div>
+
+
+
+
+
+    </fieldset>
+
+    <div class="row">
+      <div class="col-md-offset-6">
+        <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editClientFields()'>Edit</md-button>
+        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click=''>Submit</md-button>
+      </div>
+    </div>
+  </form>
+
+</div>

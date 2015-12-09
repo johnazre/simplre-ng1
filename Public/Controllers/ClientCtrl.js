@@ -10,7 +10,7 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
       source: "Friend"
     },
     {
-      name: "John Doe",
+      name: "John Does",
       email: "john@doe.com",
       phone: "555-555-5555",
       type: 'Seller',
@@ -35,6 +35,7 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
     },
   ];
 
+
   //------------ Opens hamburger menu on the top-right --------------//
   var originatorEv;
   $scope.openMenu = function($mdOpenMenu, ev) {
@@ -47,6 +48,16 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
     $mdDialog.show({
         controller: DialogController,
         templateUrl: 'Templates/clientInputForm.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+  };
+
+  $scope.clientDetailModal = function(ev) {
+    $mdDialog.show({
+        controller: 'ModalController',
+        templateUrl: 'Templates/clientDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
