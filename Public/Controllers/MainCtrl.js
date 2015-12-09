@@ -6,8 +6,8 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     link: 'user.dashboard',
     title: 'Dashboard'
   }, {
-    link: 'user.goals',
-    title: 'My Goals',
+    link: 'user.clients',
+    title: 'Clients',
   }, {
     link: 'user.inventory',
     title: 'Inventory',

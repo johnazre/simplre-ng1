@@ -15,111 +15,166 @@
         <!--------------------------------------------- FIRST TAB ----------------------------------------------------->
         <md-tab label="Property Details">
           <md-content class="md-padding">
-            <p class="md-display-2">
-              Property Details Form
+            <p class="md-display-1">
+              Property Details
             </p>
 
-            Necessary fields: Type: status, address, clients, source, listing-signed-date, listing/buyer-broker date, Expiration date, Under Contract Date, Projected close date, Close date, List/Buy Price, Sale Price, Commission Percentage, Units, GCI, Transaction Fee?, Company dollar, Royalty, Referral paid, E&O, Inspection Date, Appraisal Date, Mortgage Company, Title/Escrow Company
-
-            <!--------------- Contract Status --------------->
-            <md-content layout-padding layout-sm="column" layout="row">
-              <!-- Status -->
-              <md-input-container flex>
-                <label>Status</label>
-                <md-select ng-model="user.status">
-                  <md-option ng-repeat="status in invStatus" value="{{status.abbrev}}">
-                    {{status.abbrev}}
-                  </md-option>
-                </md-select>
+            <!--------------- Address --------------->
+            <md-content layout-padding class="md-padding">
+              <md-input-container class="md-block">
+                <label>Address</label>
+                <input ng-model="user.address">
               </md-input-container>
             </md-content>
 
-            <!--------------- Client Names --------------->
-            <md-content layout-padding>
-              <form name="userForm">
-                <div layout layout-sm="column">
-                  <md-input-container flex>
-                    <label>Clients</label>
-                    <input ng-model="user.clients">
-                  </md-input-container>
+          <!--------------- Contract Status --------------->
+          <md-content layout-padding layout-sm="column" layout="row" class="md-padding">
+            <!-- Status -->
+            <md-input-container flex>
+              <label>Status</label>
+              <md-select ng-model="user.status">
+                <md-option ng-repeat="status in invStatus" value="{{status.abbrev}}">
+                  {{status.abbrev}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </md-content>
 
-                  <!--------------- Lead Source --------------->
-                  <md-input-container flex>
-                    <label>Source</label>
-                    <input ng-model="user.clientSource"/>
-                  </md-input-container>
-                </div>
-              </form>
+          <md-content layout-padding>
+            <form>
+              <div layout="row">
+                <!--------------- Listing Signed --------------->
+                <md-datepicker md-placeholder="Listing signed" ng-model="user.listingSigned"></md-datepicker>
+                <!--------------- Listing Expires --------------->
+                <md-datepicker md-placeholder="Expiration date" ng-model="user.listingExp"></md-datepicker>
+                <!--------------- Projected Close Date --------------->
+                <md-datepicker md-placeholder="Proj Close" ng-model="user.projectedCloseDate"></md-datepicker>
+                <!--------------- Actual Close Date --------------->
+                <md-datepicker md-placeholder="Actual Close" ng-model="user.actualCloseDate"></md-datepicker>
 
-              <!--------------- Address --------------->
-              <div class="" style="border: 1px black solid !important;">
-                <md-input-container class="md-block">
-                  <label>Address</label>
-                  <input ng-model="user.address">
+              </div>
+            </form>
+          </md-content>
+
+          <md-content layout-padding>
+            <form>
+              <div layout="row">
+                <md-input-container flex>
+                  <label>List Price</label>
+                  <input ng-model="user.listPrice"/>
                 </md-input-container>
-                <md-input-container class="md-block" md-no-float>
-                  <input ng-model="user.address2" placeholder="Address 2">
+                <md-input-container flex>
+                  <label>Sale Price</label>
+                  <input ng-model="user.salePrice"/>
                 </md-input-container>
-                <div layout layout-sm="column">
-                  <md-input-container flex>
-                    <label>City</label>
-                    <input ng-model="user.city">
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>State</label>
-                    <md-select ng-model="user.state">
-                      <md-option ng-repeat="state in states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>Postal Code</label>
-                    <input md-maxlength="5" name="postalCode" ng-model="user.postalCode" ng-pattern="/^[0-9]{5}$/" placeholder="12345" required>
-                  </md-input-container>
-                </div>
+                <md-input-container flex>
+                  <label>Commission %</label>
+                  <input ng-model="user.commissionPercentage"/>
+                </md-input-container>
+              </div>
+            </form>
+          </md-content>
 
-                <md-content layout-padding>
-                  <form>
-                    <div layout="row">
-                      <!--------------- Listing Signed --------------->
-                      <md-datepicker md-placeholder="Listing signed date" ng-model="user.listingSigned"></md-datepicker>
-                      <!--------------- Listing Expires --------------->
-                      <md-datepicker md-placeholder="Expiration date" ng-model="user.listingExp"></md-datepicker>
+          <md-content layout-padding>
+            <form>
+              <div layout="row">
+                <!--------------- Inspection Date --------------->
+                <md-datepicker md-placeholder="Inspection Date" ng-model="user.inspectionDate"></md-datepicker>
+                <!--------------- Appraisal Date --------------->
+                <md-datepicker md-placeholder="Appraisal Date" ng-model="user.appraisalDate"></md-datepicker>
 
-                    </div>
-                  </form>
-                </md-content>
-              </md-tab>
+              </div>
+            </form>
+          </md-content>
+          <md-content layout-padding>
+            <md-input-container flex>
+              <label>Mortgage Company</label>
+              <input ng-model="user.mortgageCompany"/>
+            </md-input-container>
+            <md-input-container flex>
+              <label>Title/Escrow Company</label>
+              <input ng-model="user.titleEscrowCompany"/>
+            </md-input-container>
+          </md-content>
+
+          <md-divider></md-divider>
+
+          <p class="md-display-1">
+            Transaction Details
+          </p>
+          <md-content layout-padding>
+            <form>
+              <div layout="row">
+                <md-input-container flex>
+                  <label>GCI</label>
+                  <input ng-model="user.gci"/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Company Dollar</label>
+                  <input ng-model="user.companyDollar"/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Royalty</label>
+                  <input ng-model="user.royalty"/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Referral Paid</label>
+                  <input ng-model="user.referralPaid"/>
+                </md-input-container>
+              </div>
+            </form>
+          </md-content>
+          <md-content layout-padding>
+            <form>
+              <div layout="row">
+                <md-input-container flex>
+                  <label>Lead Source</label>
+                  <input ng-model="user.clientSource"/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Units</label>
+                  <input ng-model="user.units"/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>E&O</label>
+                  <input ng-model="user.eAndO"/>
+                </md-input-container>
+              </div>
+            </form>
+          </md-content>
+
+        </md-tab>
 
 
-              <!--------------------------------------------- SECOND TAB ----------------------------------------------------->
-              <md-tab label="Milestone Checklist">
-                <md-content class="md-padding">
-                  <p class="md-display-2">
-                    Activity Checklist:
-                  </p>
-                </md-content>
-              </md-tab>
-              <md-tab label="Forms Checklist">
-                <md-content class="md-padding">
-                  <p class="md-display-2">
-                    Forms Checklist:
-                  </p>
-                  Required: Greensheet MLS Printout READE Buyer/Broker ABA Counter offers Purchase contract EM Recpt Buyer Advisory Mold Disclosure Possible: Limited Rep Pre-qual POF FHA HOA Short Sale add as-is LBP Pool On-site wastewater add Mil/public airport disclosure Unrepresented Seller Compensation Trailing docs: SPDS BINSR CLUE Final walkthrough LSU Price Change or misc addendums Short sale agreement notification Water/Well SPDS Power of Attorney/Trustee/Personal Rep Auth If Res Income: Res income add res income add to spds
-                </md-content>
-              </md-tab>
-            </md-tabs>
-          </md-dialog-content>
 
-          <md-dialog-actions layout="row">
-            <span flex></span>
-            <md-button ng-click="getValue()">
-              Not Useful
-            </md-button>
-            <md-button ng-click="answer('useful')" style="margin-right:20px;">
-              Useful
-            </md-button>
-          </md-dialog-actions>
-        </form>
-      </md-dialog>
+
+        <!--------------------------------------------- SECOND TAB ----------------------------------------------------->
+        <md-tab label="Milestone Checklist">
+          <md-content class="md-padding">
+            <p class="md-display-2">
+              Activity Checklist:
+            </p>
+          </md-content>
+        </md-tab>
+        <md-tab label="Forms Checklist">
+          <md-content class="md-padding">
+            <p class="md-display-2">
+              Forms Checklist:
+            </p>
+            Required: Greensheet MLS Printout READE Buyer/Broker ABA Counter offers Purchase contract EM Recpt Buyer Advisory Mold Disclosure Possible: Limited Rep Pre-qual POF FHA HOA Short Sale add as-is LBP Pool On-site wastewater add Mil/public airport disclosure Unrepresented Seller Compensation Trailing docs: SPDS BINSR CLUE Final walkthrough LSU Price Change or misc addendums Short sale agreement notification Water/Well SPDS Power of Attorney/Trustee/Personal Rep Auth If Res Income: Res income add res income add to spds
+          </md-content>
+        </md-tab>
+      </md-tabs>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="getValue()">
+        Not Useful
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;">
+        Useful
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

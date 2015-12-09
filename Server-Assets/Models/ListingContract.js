@@ -17,10 +17,6 @@ var ListingContractSchema = new mongoose.Schema({
     ],
     required: true,
   },
-  client: {
-    type: String,
-    required: true,
-  },
   source: {
     type: String,
     required: true

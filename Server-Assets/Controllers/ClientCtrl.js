@@ -1,4 +1,4 @@
-var Buyer = require('../Models/Client');
+var Client = require('../Models/Client');
 
 module.exports = {
   create: function(req, res) {

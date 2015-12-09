@@ -6,9 +6,11 @@ var mongoose = require('mongoose');
 var app = express();
 var port = 8000;
 
+//-----------Importing Controllers-----------//
 var ListingCtrl = require('./Server-Assets/Controllers/ListingCtrl');
 var PurchaseCtrl = require('./Server-Assets/Controllers/PurchaseCtrl');
 var ClientCtrl = require('./Server-Assets/Controllers/ClientCtrl');
+var UserCtrl = require('./Server-Assets/Controllers/UserCtrl');
 
 //----------Fluff------------//
 app.use(bodyParser.json());
@@ -24,18 +26,26 @@ mongoose.connection.once('connected', function() {
   console.log('connected to db');
 })
 
-//-----------Listing Endpoints-----------//
+//-----------Client Endpoints-----------//
+app.get('/api/client', ClientCtrl.read);
+app.post('/api/client', ClientCtrl.create);
+app.put('/api/client', ClientCtrl.update);
+app.delete('/api/client', ClientCtrl.delete);
+
+//-----------Listing Contract Endpoints-----------//
 app.get('/api/listings', ListingCtrl.read);
 app.post('/api/listings', ListingCtrl.create);
 app.put('/api/listings', ListingCtrl.update);
 app.delete('/api/listings', ListingCtrl.delete);
 
-app.get('/api/buyers', PurchaseCtrl.read);
-app.post('/api/buyers', PurchaseCtrl.create);
-app.put('/api/buyers', PurchaseCtrl.update);
-app.delete('/api/buyers', PurchaseCtrl.delete);
+//-----------Purchase Contract Endpoints-----------//
+app.get('/api/purchase', PurchaseCtrl.read);
+app.post('/api/purchase', PurchaseCtrl.create);
+app.put('/api/purchase', PurchaseCtrl.update);
+app.delete('/api/purchase', PurchaseCtrl.delete);
 
-app.get('/api/client', ClientCtrl.read);
-app.post('/api/client', ClientCtrl.create);
-app.put('/api/client', ClientCtrl.update);
-app.delete('/api/client', ClientCtrl.delete);
+//-----------User Endpoints-----------//
+app.get('/api/user', UserCtrl.read);
+app.post('/api/user', UserCtrl.create);
+app.put('/api/user', UserCtrl.update);
+app.delete('/api/user', UserCtrl.delete);
