@@ -1,22 +1,16 @@
 <div class="container">
 
   <form class="form-horizontal">
-    <p>
-      {{clients[0].name}}
-    </p>
-    <fieldset id='editClientAttr' disabled="true">
+    <!-- <fieldset> -->
 
       <!-- Form Name -->
-      <legend>Add Client</legend>
+      <legend>View/Edit Client</legend>
 
       <!-- Client Name-->
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientName">Name</label>
         <div class="col-md-6">
-          <p>
-            {{clients.name}}
-          </p>
-          <input id="clientName" name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='name'>
+          <input id="editClientAttr" readonly name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='clients[0].name'>
         </div>
       </div>
 
@@ -24,7 +18,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientEmail">Email</label>
         <div class="col-md-6">
-        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="" ng-model='email'>
+        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="" ng-model='clients[0].email'>
 
         </div>
       </div>
@@ -88,7 +82,7 @@
 
 
 
-    </fieldset>
+    <!-- </fieldset> -->
 
     <div class="row">
       <div class="col-md-offset-6">

@@ -2,7 +2,7 @@ angular.module('simplreApp').controller('ModalController', function($scope, Clie
 
 
   $scope.editClientFields = function () {
-    document.getElementById('editClientAttr').hasAttribute('disabled') ? document.getElementById('editClientAttr').removeAttribute('disabled') : document.getElementById('editClientAttr').setAttribute('disabled', true);
+    document.getElementById('editClientAttr').hasAttribute('readonly') ? document.getElementById('editClientAttr').removeAttribute('readonly') : document.getElementById('editClientAttr').setAttribute('readonly');
   };
   $scope.editBuyerFields = function () {
     document.getElementById('editBuyerAttr').hasAttribute('disabled') ? document.getElementById('editBuyerAttr').removeAttribute('disabled') : document.getElementById('editBuyerAttr').setAttribute('disabled', true);

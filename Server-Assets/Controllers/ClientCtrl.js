@@ -10,11 +10,21 @@ module.exports = {
   },
 
   read: function(req, res) {
-    console.log('req.query: ', req.query);
     Client.find(req.query)
     .exec(function(err, result) {
       if (err) return res.status(500).send(console.log(err));
       res.send(result);
+    });
+  },
+
+  readOne: function(req, res) {
+    Client
+    .find({_id: req.params.id})
+    .exec()
+    .then(function(result) {
+      return res.send(result);
+    }, function (err) {
+      return res.status(500).send(err);
     });
   },
 

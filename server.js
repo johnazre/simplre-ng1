@@ -28,6 +28,7 @@ mongoose.connection.once('connected', function() {
 
 //-----------Client Endpoints-----------//
 app.get('/api/client', ClientCtrl.read);
+app.get('/api/client/:id', ClientCtrl.readOne);
 app.post('/api/client', ClientCtrl.create);
 app.put('/api/client', ClientCtrl.update);
 app.delete('/api/client', ClientCtrl.delete);
