@@ -18,6 +18,17 @@ module.exports = {
     });
   },
 
+  readOne: function(req, res) {
+    Listing
+    .find({_id: req.params.id})
+    .exec()
+    .then(function(result) {
+      return res.send(result);
+    }, function (err) {
+      return res.status(500).send(err);
+    });
+  },
+
   update: function(req, res) {
     Listing.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
       if (err) return res.status(500).send(err);

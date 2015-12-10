@@ -35,18 +35,21 @@ app.delete('/api/client', ClientCtrl.delete);
 
 //-----------Listing Contract Endpoints-----------//
 app.get('/api/listings', ListingCtrl.read);
+app.get('/api/listings:id', ListingCtrl.readOne);
 app.post('/api/listings', ListingCtrl.create);
 app.put('/api/listings', ListingCtrl.update);
 app.delete('/api/listings', ListingCtrl.delete);
 
 //-----------Purchase Contract Endpoints-----------//
 app.get('/api/purchase', PurchaseCtrl.read);
+app.get('/api/purchase/:id', PurchaseCtrl.readOne);
 app.post('/api/purchase', PurchaseCtrl.create);
 app.put('/api/purchase', PurchaseCtrl.update);
 app.delete('/api/purchase', PurchaseCtrl.delete);
 
 //-----------User Endpoints-----------//
 app.get('/api/user', UserCtrl.read);
+app.get('/api/user/:id', UserCtrl.readOne);
 app.post('/api/user', UserCtrl.create);
 app.put('/api/user', UserCtrl.update);
 app.delete('/api/user', UserCtrl.delete);

@@ -10,18 +10,8 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
 
   $scope.ShowClosedModal = function(ev) {
     $mdDialog.show({
-        controller: "ModalController",
+        controller: "ClosedModalCtrl",
         templateUrl: 'Templates/closedDetailModal.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      })
-  };
-
-  $scope.ShowListingModal = function(ev) {
-    $mdDialog.show({
-        controller: "ModalController",
-        templateUrl: 'Templates/listingDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
@@ -30,7 +20,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
 
   $scope.showAddListingModal = function(ev) {
     $mdDialog.show({
-        controller: "ModalController",
+        controller: "InventoryCtrl",
         templateUrl: 'Templates/listingInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -40,7 +30,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
 
   $scope.showAddBuyerModal = function(ev) {
     $mdDialog.show({
-        controller: 'ModalController',
+        controller: 'InventoryCtrl',
         templateUrl: 'Templates/buyerInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -48,9 +38,19 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
       })
   };
 
+    $scope.ShowListingModal = function(ev) {
+      $mdDialog.show({
+        controller: "ListingModalCtrl",
+        templateUrl: 'Templates/listingDetailModal.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+    };
+
   $scope.showBuyerModal = function(ev) {
     $mdDialog.show({
-        controller: 'ModalController',
+        controller: 'PurchaseModalCtrl',
         templateUrl: 'Templates/buyerDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -59,24 +59,3 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
   };
 
 });
-
-function DialogController($scope, $mdDialog, $mdMedia) {
-
-  $scope.status = '  ';
-  $scope.customFullscreen = $mdMedia('sm');
-  $scope.showAlert = function(ev) {
-    // Appending dialog to document.body to cover sidenav in docs app
-    // Modal dialogs should fully cover application
-    // to prevent interaction outside of dialog
-    $mdDialog.show(
-      $mdDialog.alert()
-      .parent(angular.element(document.querySelector('#popupContainer')))
-      .clickOutsideToClose(true)
-      .title('This is an alert title')
-      .textContent('You can specify some description text in here.')
-      .ariaLabel('Alert Dialog Demo')
-      .ok('Got it!')
-      .targetEvent(ev)
-    );
-  }
-}
