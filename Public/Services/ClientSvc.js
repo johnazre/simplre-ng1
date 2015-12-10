@@ -32,13 +32,15 @@ angular.module('simplreApp').service('ClientSvc', function ($http) {
     // return deferred.promise;
   }
 
-  this.postClients = function (name, email, phone, type, source) {
+  this.postClients = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
     return $http({
       method: "POST",
       url: "/api/client",
-      data: {name:name, email:email, phone:phone, type:type, source:source}
+      data: {name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
     }).then( function success (response) {
       console.log(response);
+    }).catch( function (err) {
+      console.log(err);
     });
   };
 

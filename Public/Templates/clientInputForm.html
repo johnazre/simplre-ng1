@@ -9,7 +9,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientName">Name</label>
         <div class="col-md-6">
-        <input id="clientName" name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="">
+        <input id="clientName" name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='name'>
 
         </div>
       </div>
@@ -18,7 +18,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientEmail">Email</label>
         <div class="col-md-6">
-        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="">
+        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="" ng-model="email">
 
         </div>
       </div>
@@ -27,7 +27,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientPhone">Phone</label>
         <div class="col-md-6">
-        <input id="clientPhone" name="clientPhone" type="text" placeholder="(555)555-5555..." class="form-control input-md" required="">
+        <input id="clientPhone" name="clientPhone" type="text" placeholder="(555)555-5555..." class="form-control input-md" required="" ng-model="phone">
 
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientType">Type</label>
         <div class="col-md-6">
-          <select id="clientType" name="clientType" class="form-control">
+          <select id="clientType" name="clientType" class="form-control" ng-model="type">
             <option value="Buyer">Buyer</option>
             <option value="Seller">Seller</option>
           </select>
@@ -47,7 +47,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="buyerStatus">Buyer Status</label>
         <div class="col-md-6">
-          <select id="buyerStatus" name="buyerStatus" class="form-control">
+          <select id="buyerStatus" name="buyerStatus" class="form-control" ng-model="buyerStatus">
             <option value="Pre-Approved">Pre-Approved</option>
             <option value="Searching">Searching</option>
             <option value="Under Contract">Under Contract</option>
@@ -60,7 +60,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="sellerStatus">Seller Status</label>
         <div class="col-md-6">
-          <select id="sellerStatus" name="sellerStatus" class="form-control">
+          <select id="sellerStatus" name="sellerStatus" class="form-control" ng-model="sellerStatus">
             <option value="Undecided">Undecided</option>
             <option value="Interested">Interested</option>
             <option value="Currently Listing">Currently Listing</option>
@@ -74,7 +74,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientSource">Source</label>
         <div class="col-md-6">
-        <input id="clientSource" name="clientSource" type="text" placeholder="Source" class="form-control input-md">
+        <input id="clientSource" name="clientSource" type="text" placeholder="Source" class="form-control input-md" ng-model="source">
         </div>
       </div>
 
@@ -83,7 +83,7 @@
 
   <div class="row">
     <div class="col-md-offset-8">
-      <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='postClient(name, email, phone, type, buyerStatus, sellerStatus, source)'>Submit</md-button>
+      <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='postClient($event,name, email, phone, type, buyerStatus, sellerStatus, source)'>Submit</md-button>
     </div>
   </div>
 

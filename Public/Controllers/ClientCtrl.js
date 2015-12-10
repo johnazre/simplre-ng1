@@ -15,7 +15,8 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
 
   $scope.getClients();
 
-  $scope.postClient = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
+  $scope.postClient = function (ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+    console.log(ev);
     ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then( function (res) {
       console.log(res);
     });
@@ -37,7 +38,8 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true,
-      })
+    });
+    console.log(ev);
   };
 
   $scope.clientDetailModal = function(ev, thisClient) {
