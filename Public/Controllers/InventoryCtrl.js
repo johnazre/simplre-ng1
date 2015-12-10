@@ -1,5 +1,5 @@
 angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainSvc, $mdDialog, $mdMedia) {
-  //Create a "status" array for active/closed/whatever
+
 
   var originatorEv;
   $scope.openMenu = function($mdOpenMenu, ev) {
@@ -8,12 +8,20 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
   };
 
 
+  $scope.ShowClosedModal = function(ev) {
+    $mdDialog.show({
+        controller: "ModalController",
+        templateUrl: 'Templates/closedDetailModal.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+  };
 
   $scope.ShowListingModal = function(ev) {
-    console.log('test');
     $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'Templates/listingInputForm.html',
+        controller: "ModalController",
+        templateUrl: 'Templates/listingDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true
@@ -22,7 +30,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
 
   $scope.showAddListingModal = function(ev) {
     $mdDialog.show({
-        controller: DialogController,
+        controller: "ModalController",
         templateUrl: 'Templates/listingInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -32,7 +40,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
 
   $scope.showAddBuyerModal = function(ev) {
     $mdDialog.show({
-        controller: DialogController,
+        controller: 'ModalController',
         templateUrl: 'Templates/buyerInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -40,6 +48,15 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, MainS
       })
   };
 
+  $scope.showBuyerModal = function(ev) {
+    $mdDialog.show({
+        controller: 'ModalController',
+        templateUrl: 'Templates/buyerDetailModal.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose: true
+      })
+  };
 
 });
 

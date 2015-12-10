@@ -1,0 +1,150 @@
+<div class="container">
+  <form class="form-horizontal">
+    <fieldset id="editBuyerAttr" disabled="true">
+
+      <!-- Form Name -->
+      <legend>Closed</legend>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="userPurchaseAddress">Address</label>
+        <div class="col-md-6">
+        <input id="userPurchaseAddress" name="userPurchaseAddress" type="text" placeholder="Street, City, State, Zip..." class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="purchaseClient">Client</label>
+        <div class="col-md-6">
+        <input id="purchaseClient" name="purchaseClient" type="text" placeholder="Client" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="purchaseStatus">Status</label>
+        <div class="col-md-6">
+          <select id="purchaseStatus" name="purchaseStatus" class="form-control">
+            <option value="Pre-signed">Pre-signed</option>
+            <option value="Pending">Pending</option>
+            <option value="Closed">Closed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="listPrice">List Price</label>
+        <div class="col-md-6">
+        <input id="listPrice" name="listPrice" type="text" placeholder="List Price" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="salePrice">Sale Price</label>
+        <div class="col-md-6">
+        <input id="salePrice" name="salePrice" type="text" placeholder="Sale Price" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="commissionPercentage">Commission %</label>
+        <div class="col-md-6">
+        <input id="commissionPercentage" name="commissionPercentage" type="text" placeholder="Commission %" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="purchaseUnits">Units</label>
+        <div class="col-md-6">
+        <input id="purchaseUnits" name="purchaseUnits" type="text" placeholder="Units" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="purchaseGCI">GCI</label>
+        <div class="col-md-6">
+        <input id="purchaseGCI" name="purchaseGCI" type="text" placeholder="GCI" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="companyDollar">Company $</label>
+        <div class="col-md-6">
+        <input id="companyDollar" name="companyDollar" type="text" placeholder="Company $" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="purchaseRoyalty">Royalty</label>
+        <div class="col-md-4">
+        <input id="purchaseRoyalty" name="purchaseRoyalty" type="text" placeholder="Royalty" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="referralPaid">Referral $ Paid</label>
+        <div class="col-md-6">
+        <input id="referralPaid" name="referralPaid" type="text" placeholder="Referral $ Paid" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="eAndO">E&amp;O</label>
+        <div class="col-md-4">
+        <input id="eAndO" name="eAndO" type="text" placeholder="E&amp;O" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="mortgageCompany">Mortgage Company</label>
+        <div class="col-md-6">
+        <input id="mortgageCompany" name="mortgageCompany" type="text" placeholder="Mortgage Company" class="form-control input-md">
+
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-2 control-label" for="titleEscrowCompany">Title/Escrow Company</label>
+        <div class="col-md-6">
+        <input id="titleEscrowCompany" name="titleEscrowCompany" type="text" placeholder="Title/Escrow Company" class="form-control input-md">
+
+        </div>
+      </div>
+
+      </fieldset>
+
+      <div class="row">
+        <div class="col-md-offset-6">
+          <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editClosedFields()'>Edit</md-button>
+          <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click=''>Submit</md-button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+</div>

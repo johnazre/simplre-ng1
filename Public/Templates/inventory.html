@@ -25,7 +25,7 @@
     <md-content>
       <md-list>
         <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-        <md-list-item class="md-3-line" ng-click="ShowInventoryModal($event)" ng-repeat="listing in listings">
+        <md-list-item class="md-3-line" ng-click="ShowListingModal($event)" ng-repeat="listing in listings">
           <div class="md-list-item-text">
             <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
             <h3>{{listing.address}}</h3>
@@ -66,7 +66,7 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="ShowInventoryModal($event)" ng-repeat="listing in listings">
+      <md-list-item class="md-3-line" ng-click="showBuyerModal($event)" ng-repeat="listing in listings">
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{listing.address}}</h3>
@@ -87,25 +87,12 @@
       <h2>
         <span>Closed</span>
       </h2>
-      <md-menu>
-        <md-button aria-label="addClosing" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
-          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
-        </md-button>
-        <md-menu-content width="4">
-          <md-menu-item>
-            <md-button ng-click="" aria-label='addBuyer'>
-              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
-              Add Closing...
-            </md-button>
-          </md-menu-item>
-        </md-menu-content>
-      </md-menu>
     </div>
   </md-toolbar>
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="ShowInventoryModal($event)" ng-repeat="listing in listings">
+      <md-list-item class="md-3-line" ng-click="ShowClosedModal($event)" ng-repeat="listing in listings">
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{listing.address}}</h3>
