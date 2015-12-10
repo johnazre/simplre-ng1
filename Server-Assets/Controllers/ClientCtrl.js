@@ -4,7 +4,7 @@ module.exports = {
   create: function(req, res) {
     var newClient = new Client(req.body);
     newClient.save( function(err, result) {
-      if (err) return res.status(500).send(err);
+      if (err) return res.status(500).send(console.log(err));
       res.send(result);
     });
   },
@@ -13,7 +13,7 @@ module.exports = {
     console.log('req.query: ', req.query);
     Client.find(req.query)
     .exec(function(err, result) {
-      if (err) return res.status(500).send(err);
+      if (err) return res.status(500).send(console.log(err));
       res.send(result);
     });
   },

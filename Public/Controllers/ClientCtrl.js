@@ -1,39 +1,47 @@
-angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialog, $mdMedia) {
+angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialog, $mdMedia, ClientSvc) {
 
-  $scope.clients = [
-    {
-      name: "John Doe",
-      email: "john@doe.com",
-      phone: "555-555-5555",
-      type: 'Seller',
-      sellerStatus: "Intereted",
-      source: "Friend"
-    },
-    {
-      name: "John Does",
-      email: "john@doe.com",
-      phone: "555-555-5555",
-      type: 'Seller',
-      sellerStatus: "Intereted",
-      source: "Friend"
-    },
-    {
-      name: "John Doe",
-      email: "john@doe.com",
-      phone: "555-555-5555",
-      type: 'Seller',
-      sellerStatus: "Intereted",
-      source: "Friend"
-    },
-    {
-      name: "John Doe",
-      email: "john@doe.com",
-      phone: "555-555-5555",
-      type: 'Seller',
-      sellerStatus: "Intereted",
-      source: "Friend"
-    },
-  ];
+  // $scope.clients = [
+  //   {
+  //     name: "John Doe",
+  //     email: "john@doe.com",
+  //     phone: "555-555-5555",
+  //     type: 'Seller',
+  //     sellerStatus: "Intereted",
+  //     source: "Friend"
+  //   },
+  //   {
+  //     name: "John Does",
+  //     email: "john@doe.com",
+  //     phone: "555-555-5555",
+  //     type: 'Seller',
+  //     sellerStatus: "Intereted",
+  //     source: "Friend"
+  //   },
+  //   {
+  //     name: "John Doe",
+  //     email: "john@doe.com",
+  //     phone: "555-555-5555",
+  //     type: 'Seller',
+  //     sellerStatus: "Intereted",
+  //     source: "Friend"
+  //   },
+  //   {
+  //     name: "John Doe",
+  //     email: "john@doe.com",
+  //     phone: "555-555-5555",
+  //     type: 'Seller',
+  //     sellerStatus: "Intereted",
+  //     source: "Friend"
+  //   },
+  // ];
+
+  $scope.getClients = function() {
+      ClientSvc.getClients().then(function(response){
+        $scope.clients = response.data;
+      });
+  };
+
+  $scope.getClients();
 
 
   //------------ Opens hamburger menu on the top-right --------------//
@@ -46,7 +54,7 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
   //------------ Opens the modal --------------//
   $scope.addClientModal = function(ev) {
     $mdDialog.show({
-        controller: DialogController,
+        controller: 'ModalController',
         templateUrl: 'Templates/clientInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
