@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ModalController', function($scope, ClientSvc) {
+angular.module('simplreApp').controller('ModalController', function($scope, ClientSvc, client) {
 
 
   $scope.editClientFields = function () {
@@ -11,22 +11,23 @@ angular.module('simplreApp').controller('ModalController', function($scope, Clie
     document.getElementById('editListAttr').hasAttribute('disabled') ? document.getElementById('editListAttr').removeAttribute('disabled') : document.getElementById('editListAttr').setAttribute('disabled', true);
   };
 
-  $scope.clients = {};
+  $scope.clients = client;
+  console.log(client);
 
-  $scope.getClients = function() {
-      ClientSvc.getClients().then(function(response){
-        $scope.clients = response.data;
-        console.log(response.data);
-      });
-  };
 
-  $scope.postClient = function (name, email, phone, type, source) {
-    ClientSvc.postClients(name, email, phone, type, source).then( function (res) {
+  $scope.postClient = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
+    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then( function (res) {
       console.log(res);
     });
   };
 
-  $scope.getClients();
+
+
+
+
+
+
+
 
 
 });

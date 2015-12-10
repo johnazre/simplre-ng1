@@ -25,9 +25,10 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="clientDetailModal($event)" ng-repeat="client in clients">
+      <md-list-item class="md-3-line" ng-click="clientDetailModal($event, client)" ng-repeat="client in clients" ng-model="selected">
         <div class="md-list-item-text">
-          <img alt="{{ client.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
+          <!-- <img alt="{{ client.name }}" ng-src="http://placehold.it/50x50" class="md-secondary"> -->
+          <h3 class="md-secondary">{{clients._id}}</h3>
           <h3>{{client.name}}</h3>
           <h4>{{client.email}}</h4>
           <p>{{client.phone}}</p>

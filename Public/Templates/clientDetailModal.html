@@ -8,9 +8,9 @@
 
       <!-- Client Name-->
       <div class="form-group">
-        <label class="col-md-3 control-label" for="clientName">Name</label>
+        <label class="col-md-3 control-label" for="clientName">ID</label>
         <div class="col-md-6">
-          <input id="editClientAttr" readonly name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='clients[0].name'>
+          <input id="editClientAttr" readonly name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='clients.name'>
         </div>
       </div>
 
@@ -18,7 +18,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientEmail">Email</label>
         <div class="col-md-6">
-        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="" ng-model='clients[0].email'>
+        <input id="clientEmail" name="clientEmail" type="text" placeholder="Email..." class="form-control input-md" required="" ng-model='clients.email'>
 
         </div>
       </div>
@@ -27,7 +27,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientPhone">Phone</label>
         <div class="col-md-6">
-        <input id="clientPhone" name="clientPhone" type="text" placeholder="(555)555-5555..." class="form-control input-md" required="" ng-model='phone'>
+        <input id="clientPhone" name="clientPhone" type="text" placeholder="(555)555-5555..." class="form-control input-md" required="" ng-model='clients.phone'>
 
         </div>
       </div>
@@ -36,7 +36,7 @@
       <div class="form-group" id='clientType'>
         <label class="col-md-3 control-label" for="clientType">Type</label>
         <div class="col-md-6">
-          <select id="clientType" name="clientType" class="form-control" ng-model='type'>
+          <select id="clientType" name="clientType" class="form-control" ng-model='clients.type'>
             <option value="Buyer">Buyer</option>
             <option value="Seller">Seller</option>
           </select>
@@ -47,7 +47,7 @@
       <div class="form-group" id="buyerStatus">
         <label class="col-md-3 control-label" for="buyerStatus">Buyer Status</label>
         <div class="col-md-6">
-          <select id="buyerStatus" name="buyerStatus" class="form-control" ng-model='status'>
+          <select id="buyerStatus" name="buyerStatus" class="form-control" ng-model='clients.buyerStatus'>
             <option value="Pre-Approved">Pre-Approved</option>
             <option value="Searching">Searching</option>
             <option value="Under Contract">Under Contract</option>
@@ -60,7 +60,7 @@
       <div class="form-group" id="sellerStatus">
         <label class="col-md-3 control-label" for="sellerStatus">Seller Status</label>
         <div class="col-md-6">
-          <select id="sellerStatus" name="sellerStatus" class="form-control">
+          <select id="sellerStatus" name="sellerStatus" class="form-control" ng-model="clients.sellerStatus">
             <option value="Undecided">Undecided</option>
             <option value="Interested">Interested</option>
             <option value="Currently Listing">Currently Listing</option>
@@ -74,7 +74,7 @@
       <div class="form-group">
         <label class="col-md-3 control-label" for="clientSource">Source</label>
         <div class="col-md-6">
-        <input id="clientSource" name="clientSource" type="text" placeholder="Source" class="form-control input-md" ng-model="source">
+        <input id="clientSource" name="clientSource" type="text" placeholder="Source" class="form-control input-md" ng-model="client.source">
         </div>
       </div>
 

@@ -15,8 +15,8 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
 
   $scope.getClients();
 
-  $scope.postClient = function (name, email, phone, type, source) {
-    ClientSvc.postClients(name, email, phone, type, source).then( function (res) {
+  $scope.postClient = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
+    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then( function (res) {
       console.log(res);
     });
   };
@@ -32,21 +32,24 @@ angular.module('simplreApp').controller('ClientCtrl', function ($scope, $mdDialo
   //------------ Opens the modal --------------//
   $scope.addClientModal = function(ev) {
     $mdDialog.show({
-        controller: 'ModalController',
+        controller: 'ClientCtrl',
         templateUrl: 'Templates/clientInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
       })
   };
 
-  $scope.clientDetailModal = function(ev) {
+  $scope.clientDetailModal = function(ev, thisClient) {
     $mdDialog.show({
-        controller: 'ClientCtrl',
+        controller: 'ModalController',
         templateUrl: 'Templates/clientDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
+        locals: {
+          client: thisClient
+        }
       })
   };
 
