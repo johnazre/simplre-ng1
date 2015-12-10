@@ -1,24 +1,22 @@
 <div class="container">
   <form class="form-horizontal">
-    <fieldset id="editBuyerAttr">
 
     <!-- Form Name -->
     <legend>Buyer Form</legend>
 
-    <!-- Text input-->
+    <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="userPurchaseAddress">Address</label>
+      <label class="col-md-2 control-label">Client</label>
       <div class="col-md-6">
-      <input id="userPurchaseAddress" name="userPurchaseAddress" type="text" placeholder="Street, City, State, Zip..." class="form-control input-md" required="">
-
+        <select ng-options="client.name for client in clients" class="form-control" id="buyerClient" ng-model="client"></select>
       </div>
     </div>
 
     <!-- Text input-->
     <div class="form-group">
-      <label class="col-md-2 control-label" for="purchaseClient">Client</label>
+      <label class="col-md-2 control-label" for="userPurchaseAddress">Address</label>
       <div class="col-md-6">
-      <input id="purchaseClient" name="purchaseClient" type="text" placeholder="Client" class="form-control input-md" required="">
+      <input id="userPurchaseAddress" name="userPurchaseAddress" type="text" placeholder="Street, City, State, Zip..." class="form-control input-md" required="" ng-model='address'>
 
       </div>
     </div>
@@ -27,7 +25,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="purchaseStatus">Status</label>
       <div class="col-md-6">
-        <select id="purchaseStatus" name="purchaseStatus" class="form-control">
+        <select id="purchaseStatus" name="purchaseStatus" class="form-control" ng-model='status'>
           <option value="Pre-signed">Pre-signed</option>
           <option value="Pending">Pending</option>
           <option value="Closed">Closed</option>
@@ -40,7 +38,16 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="listPrice">List Price</label>
       <div class="col-md-6">
-      <input id="listPrice" name="listPrice" type="text" placeholder="List Price" class="form-control input-md">
+      <input id="listPrice" name="listPrice" type="text" placeholder="List Price" class="form-control input-md" ng-model='listPrice'>
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-2 control-label">Offer Price</label>
+      <div class="col-md-6">
+      <input id="offerPrice" type="text" placeholder="Offer Price" class="form-control input-md" ng-model='offerPrice'>
 
       </div>
     </div>
@@ -49,7 +56,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="salePrice">Sale Price</label>
       <div class="col-md-6">
-      <input id="salePrice" name="salePrice" type="text" placeholder="Sale Price" class="form-control input-md">
+      <input id="salePrice" name="salePrice" type="text" placeholder="Sale Price" class="form-control input-md" ng-model='salePrice'>
 
       </div>
     </div>
@@ -58,7 +65,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="commissionPercentage">Commission %</label>
       <div class="col-md-6">
-      <input id="commissionPercentage" name="commissionPercentage" type="text" placeholder="Commission %" class="form-control input-md">
+      <input id="commissionPercentage" name="commissionPercentage" type="text" placeholder="Commission %" class="form-control input-md" ng-model='commissionPercentage'>
 
       </div>
     </div>
@@ -67,7 +74,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="purchaseUnits">Units</label>
       <div class="col-md-6">
-      <input id="purchaseUnits" name="purchaseUnits" type="text" placeholder="Units" class="form-control input-md">
+      <input id="purchaseUnits" name="purchaseUnits" type="text" placeholder="Units" class="form-control input-md" ng-model='units'>
 
       </div>
     </div>
@@ -76,7 +83,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="purchaseGCI">GCI</label>
       <div class="col-md-6">
-      <input id="purchaseGCI" name="purchaseGCI" type="text" placeholder="GCI" class="form-control input-md">
+      <input id="purchaseGCI" name="purchaseGCI" type="text" placeholder="GCI" class="form-control input-md" ng-model='gci'>
 
       </div>
     </div>
@@ -85,7 +92,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="companyDollar">Company $</label>
       <div class="col-md-6">
-      <input id="companyDollar" name="companyDollar" type="text" placeholder="Company $" class="form-control input-md">
+      <input id="companyDollar" name="companyDollar" type="text" placeholder="Company $" class="form-control input-md" ng-model='companyDollar'>
 
       </div>
     </div>
@@ -94,7 +101,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="purchaseRoyalty">Royalty</label>
       <div class="col-md-4">
-      <input id="purchaseRoyalty" name="purchaseRoyalty" type="text" placeholder="Royalty" class="form-control input-md">
+      <input id="purchaseRoyalty" name="purchaseRoyalty" type="text" placeholder="Royalty" class="form-control input-md" ng-model='royalty'>
 
       </div>
     </div>
@@ -103,7 +110,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="referralPaid">Referral $ Paid</label>
       <div class="col-md-6">
-      <input id="referralPaid" name="referralPaid" type="text" placeholder="Referral $ Paid" class="form-control input-md">
+      <input id="referralPaid" name="referralPaid" type="text" placeholder="Referral $ Paid" class="form-control input-md" ng-model='referralPaid'>
 
       </div>
     </div>
@@ -112,7 +119,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="eAndO">E&amp;O</label>
       <div class="col-md-4">
-      <input id="eAndO" name="eAndO" type="text" placeholder="E&amp;O" class="form-control input-md">
+      <input id="eAndO" name="eAndO" type="text" placeholder="E&amp;O" class="form-control input-md" ng-model='eAndO'>
 
       </div>
     </div>
@@ -121,7 +128,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="mortgageCompany">Mortgage Company</label>
       <div class="col-md-6">
-      <input id="mortgageCompany" name="mortgageCompany" type="text" placeholder="Mortgage Company" class="form-control input-md">
+      <input id="mortgageCompany" name="mortgageCompany" type="text" placeholder="Mortgage Company" class="form-control input-md" ng-model='mortgageCompany'>
 
       </div>
     </div>
@@ -130,17 +137,16 @@
     <div class="form-group">
       <label class="col-md-2 control-label" for="titleEscrowCompany">Title/Escrow Company</label>
       <div class="col-md-6">
-      <input id="titleEscrowCompany" name="titleEscrowCompany" type="text" placeholder="Title/Escrow Company" class="form-control input-md">
+      <input id="titleEscrowCompany" name="titleEscrowCompany" type="text" placeholder="Title/Escrow Company" class="form-control input-md" ng-model='titleEscrowCompany'>
 
       </div>
     </div>
 
-    </fieldset>
 
     <div class="row">
       <div class="col-md-offset-6">
         <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editBuyerFields()'>Edit</md-button>
-        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click=''>Submit</md-button>
+        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='postPurchase($event, client._id, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany)'>Submit</md-button>
       </div>
     </div>
   </form>

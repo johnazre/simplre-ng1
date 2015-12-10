@@ -1,13 +1,9 @@
 angular.module('simplreApp').service('ListingSvc', function ($http) {
 
-    this.getListing = function () {
+    this.getListings = function () {
       return $http({
         method: "GET",
         url: "/api/listing"
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
       });
 
     }
@@ -16,22 +12,14 @@ angular.module('simplreApp').service('ListingSvc', function ($http) {
       return $http({
         method: "GET",
         url: "/api/listing/" + id
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
       });
     }
 
-    this.postListing = function () {
+    this.postListing = function (client, address, status, source, listPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
       return $http({
         method: "POST",
         url: "/api/listing",
-        data: {}
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
+        data: {client:client, address:address, status:status, source:source, listPrice:listPrice, salePrice:salePrice, commissionPercentage:commissionPercentage, units:units, gci:gci, companyDollar:companyDollar, royalty:royalty, referralPaid:referralPaid, eAndO:eAndO, mortgageCompany:mortgageCompany, titleEscrowCompany:titleEscrowCompany}
       });
     };
 

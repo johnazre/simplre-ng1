@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var PurchaseContractSchema = new mongoose.Schema({
+  client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
   address: {
     type: String,
     required: true,
@@ -15,7 +16,6 @@ var PurchaseContractSchema = new mongoose.Schema({
     ],
     required: true,
   },
-  client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
   contractSignedDate: Date,
   projectedCloseDate: Date,
   actualCloseDate: Date,

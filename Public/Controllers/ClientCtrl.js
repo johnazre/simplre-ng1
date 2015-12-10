@@ -10,7 +10,7 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
 
   $scope.getOneClient = function(id) {
     ClientSvc.getOneClient(id).then(function(response) {
-      $scope.clients = response.data;
+      $scope.singleClient = response.data;
     });
   };
 

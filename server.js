@@ -34,11 +34,11 @@ app.put('/api/client', ClientCtrl.update);
 app.delete('/api/client', ClientCtrl.delete);
 
 //-----------Listing Contract Endpoints-----------//
-app.get('/api/listings', ListingCtrl.read);
-app.get('/api/listings:id', ListingCtrl.readOne);
-app.post('/api/listings', ListingCtrl.create);
-app.put('/api/listings', ListingCtrl.update);
-app.delete('/api/listings', ListingCtrl.delete);
+app.get('/api/listing', ListingCtrl.read);
+app.get('/api/listing/:id', ListingCtrl.readOne);
+app.post('/api/listing', ListingCtrl.create);
+app.put('/api/listing', ListingCtrl.update);
+app.delete('/api/listing', ListingCtrl.delete);
 
 //-----------Purchase Contract Endpoints-----------//
 app.get('/api/purchase', PurchaseCtrl.read);

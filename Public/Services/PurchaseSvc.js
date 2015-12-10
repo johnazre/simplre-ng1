@@ -1,13 +1,9 @@
 angular.module('simplreApp').service('PurchaseSvc', function ($http) {
 
-    this.getPurchase = function () {
+    this.getPurchases = function () {
       return $http({
         method: "GET",
         url: "/api/purchase"
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
       });
 
     }
@@ -16,22 +12,14 @@ angular.module('simplreApp').service('PurchaseSvc', function ($http) {
       return $http({
         method: "GET",
         url: "/api/purchase/" + id
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
       });
     }
 
-    this.postPurchase = function () {
+    this.postPurchase = function (client, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany) {
       return $http({
         method: "POST",
         url: "/api/purchase",
-        data: {}
-      }).then( function success (response) {
-        console.log(response);
-      }).catch( function (err) {
-        console.log(err);
+        data: {client:client, address:address, status:status, listPrice:listPrice, offerPrice:offerPrice, salePrice:salePrice, commissionPercentage:commissionPercentage, units:units, gci:gci, companyDollar:companyDollar, royalty:royalty, referralPaid:referralPaid, eAndO:eAndO, inspectionDate:inspectionDate, appraisalDate:appraisalDate, mortgageCompany:mortgageCompany, titleEscrowCompany:titleEscrowCompany}
       });
     };
 
