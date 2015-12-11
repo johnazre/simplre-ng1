@@ -2,9 +2,14 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var passport = require('passport');
+var FacebookStrategy = require('passport-facebook').Strategy;
+var secret = require("./secret");
 
 var app = express();
-var port = 8000;
+var port = 8001;
 
 //-----------Importing Controllers-----------//
 var ListingCtrl = require('./Server-Assets/Controllers/ListingCtrl');
@@ -13,8 +18,9 @@ var ClientCtrl = require('./Server-Assets/Controllers/ClientCtrl');
 var UserCtrl = require('./Server-Assets/Controllers/UserCtrl');
 
 //----------Fluff------------//
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
+app.use(cookieParser());
 app.use(express.static(__dirname+'/public'));
 app.listen(port, function () {
   console.log("Listening on port: " + port);
@@ -25,6 +31,46 @@ mongoose.connect('mongodb://localhost/simplre')
 mongoose.connection.once('connected', function() {
   console.log('connected to db');
 })
+
+//-----------Passport Facebook Authentication-----------//
+app.use(session({
+    secret: secret.session,
+    resave: false,
+    saveUninitialized: false,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new FacebookStrategy({
+    clientID: secret.fb.clientID,
+    clientSecret: secret.fb.clientSecret,
+    callbackURL: "http://localhost:"+port+"/api/auth/callback",
+}, function(token, refreshToken, profile, done){
+    return done(null, profile);
+}));
+
+
+app.get("/api/auth/", passport.authenticate("facebook"));
+app.get("/api/auth/callback", passport.authenticate("facebook", {
+    successRedirect: "/#/home",
+    failureRedirect: "/#/login"
+}));
+
+passport.serializeUser(function(user, done){
+    done(null, user);
+});
+passport.deserializeUser(function(obj, done){
+    done(null, obj);
+});
+
+app.get("/me", function(req, res){
+    res.json(req.user);
+});
+
+
+
+// app.post('/login', function)
+
 
 //-----------Client Endpoints-----------//
 app.get('/api/client', ClientCtrl.read);

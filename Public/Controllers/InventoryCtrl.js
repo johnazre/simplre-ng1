@@ -8,13 +8,16 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
   };
 
 
-  $scope.ShowClosedModal = function(ev) {
+  $scope.ShowClosedModal = function(ev, closed) {
     $mdDialog.show({
         controller: "ClosedModalCtrl",
         templateUrl: 'Templates/closedDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
+        locals: {
+          closed: closed
+        }
       })
   };
 
@@ -44,23 +47,29 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
       })
   };
 
-    $scope.ShowListingModal = function(ev) {
+    $scope.ShowListingModal = function(ev, thisListing) {
       $mdDialog.show({
         controller: "ListingModalCtrl",
         templateUrl: 'Templates/listingDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
+        locals: {
+          listing: thisListing
+        }
       })
     };
 
-  $scope.showBuyerModal = function(ev) {
+  $scope.showBuyerModal = function(ev, thisPurchase) {
     $mdDialog.show({
         controller: 'PurchaseModalCtrl',
         templateUrl: 'Templates/buyerDetailModal.html',
         parent: angular.element(document.body),
         targetEvent: ev,
-        clickOutsideToClose: true
+        clickOutsideToClose: true,
+        locals: {
+          purchase: thisPurchase
+        }
       })
   };
 

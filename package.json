@@ -18,11 +18,17 @@
   "homepage": "https://github.com/johnazre/simplre#readme",
   "dependencies": {
     "angular": "^1.4.7",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
     "angular-material": "^0.11.4",
     "angular-ui-router": "^0.2.15",
     "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
     "cors": "^2.7.1",
     "express": "^4.13.3",
-    "mongoose": "^4.2.9"
+    "express-session": "^1.12.1",
+    "mongoose": "^4.2.9",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.0.0"
   }
 }

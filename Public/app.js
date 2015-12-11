@@ -4,7 +4,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider
         .state('home', {
-            url: '/',
+            url: '/home',
             templateUrl: 'Templates/home.html',
             controller: 'MainCtrl'
         })
@@ -15,12 +15,12 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('login', {
             url: '/login',
-            templateUrl: 'Templates/login.html',
+            templateUrl: 'Templates/userlogin.html',
             controller: 'RegisterCtrl'
         })
         .state('user', {
             url: '/user',
-            templateUrl: 'Templates/user.html',
+            templateUrl: 'Templates/userLogin.html',
             controller: 'MainCtrl'
         })
         .state('user.dashboard', {
@@ -45,7 +45,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         // });
 
     $urlRouterProvider
-        .otherwise('/');
+        .otherwise('/home');
 });
 
 app.config(function($mdThemingProvider) {

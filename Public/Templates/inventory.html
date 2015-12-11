@@ -25,12 +25,12 @@
     <md-content>
       <md-list>
         <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-        <md-list-item class="md-3-line" ng-click="ShowListingModal($event)" ng-repeat="listing in listings">
+        <md-list-item class="md-3-line" ng-click="ShowListingModal($event, listing)" ng-repeat="listing in listings">
           <div class="md-list-item-text">
             <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
             <h3>{{listing.address}}</h3>
             <h4>{{listing.listPrice}}</h4>
-            <p>{{listing.sellerName}}</p>
+            <p>{{listing.client}}</p>
           </div>
         <md-divider></md-divider>
         </md-list-item>
@@ -66,8 +66,8 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="showBuyerModal($event)" ng-repeat="purchase in purchases">
-        <div class="md-list-item-text">
+      <md-list-item class="md-3-line" ng-click="showBuyerModal($event, purchase)" ng-repeat="purchase in purchases">
+        <div class="md-list-item-text" >
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{purchase.client}}</h3>
           <h4>{{purchase.address}}</h4>
@@ -92,7 +92,7 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="ShowClosedModal($event)" ng-repeat="closed in closeds">
+      <md-list-item class="md-3-line" ng-click="ShowClosedModal($event, closed)" ng-repeat="closed in closeds">
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{closed.address}}</h3>

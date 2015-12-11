@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ListingModalCtrl', function($scope, ClientSvc, ListingSvc) {
+angular.module('simplreApp').controller('ListingModalCtrl', function($scope, ClientSvc, ListingSvc, listing) {
 
   $scope.getClients = function() {
     ClientSvc.getClients().then(function(res) {
@@ -15,6 +15,9 @@ angular.module('simplreApp').controller('ListingModalCtrl', function($scope, Cli
       console.log(res);
     });
   };
+
+  $scope.listings = listing;
+  console.log(listing);
 
 
 

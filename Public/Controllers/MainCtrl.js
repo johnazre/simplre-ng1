@@ -24,21 +24,4 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     console.log($scope.user.listingSigned);
   }
 
-  $scope.listings = [{
-    address: '123 Main Street, Tucson, AZ 85701',
-    listPrice: '$324,500',
-    sellerName: 'Jimmy McKenna',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    address: '456 Main Street, Tucson, AZ 85701',
-    listPrice: '$120,000',
-    sellerName: 'James Taylor',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    address: '789 Main Street, Tucson, AZ 85701',
-    listPrice: '$250,000',
-    sellerName: 'Eliza Smith',
-    notes: " I'll be in your neighborhood doing errands"
-  }];
-
 });
