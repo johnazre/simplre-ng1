@@ -16,6 +16,7 @@ var ListingCtrl = require('./Server-Assets/Controllers/ListingCtrl');
 var PurchaseCtrl = require('./Server-Assets/Controllers/PurchaseCtrl');
 var ClientCtrl = require('./Server-Assets/Controllers/ClientCtrl');
 var UserCtrl = require('./Server-Assets/Controllers/UserCtrl');
+var User = require('./Server-Assets/Models/User')
 
 //----------Fluff------------//
 app.use(bodyParser.urlencoded({extended:false}));
@@ -45,9 +46,32 @@ passport.use(new FacebookStrategy({
     clientID: secret.fb.clientID,
     clientSecret: secret.fb.clientSecret,
     callbackURL: "http://localhost:"+port+"/api/auth/callback",
-}, function(token, refreshToken, profile, done){
-    return done(null, profile);
-}));
+},  function(accessToken, refreshToken, profile, done) {
+        console.log('Refresh:', refreshToken)
+	    	process.nextTick(function(){
+	    		User.findOne({'facebook.id': profile.id}, function(err, user){
+	    			if(err)
+	    				return done(err);
+	    			if(user)
+	    				return done(null, user);
+	    			else {
+	    				var newUser = new User();
+	    				newUser.facebook.id = profile.id;
+	    				newUser.facebook.token = refreshToken;
+	    				newUser.facebook.name = profile.displayName;
+
+	    				newUser.save(function(err){
+	    					if(err)
+	    						throw err;
+	    					return done(null, newUser);
+	    				})
+	    				console.log(profile);
+	    			}
+	    		});
+	    	});
+	    }
+
+));
 
 
 app.get("/api/auth/", passport.authenticate("facebook"));
@@ -66,7 +90,6 @@ passport.deserializeUser(function(obj, done){
 app.get("/me", function(req, res){
     res.json(req.user);
 });
-
 
 
 // app.post('/login', function)
@@ -96,6 +119,6 @@ app.delete('/api/purchase', PurchaseCtrl.delete);
 //-----------User Endpoints-----------//
 app.get('/api/user', UserCtrl.read);
 app.get('/api/user/:id', UserCtrl.readOne);
-app.post('/api/user', UserCtrl.create);
+// app.post('/api/user', UserCtrl.create);
 app.put('/api/user', UserCtrl.update);
 app.delete('/api/user', UserCtrl.delete);
