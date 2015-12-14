@@ -3,6 +3,24 @@ var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
 
+  var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
+    // Initialize a new promise
+    var deferred = $q.defer();
+    // Make an AJAX call to check if the user is logged in
+
+    $http.get('/checklogged').success(function(user){
+      // Authenticated
+      if (user !== '0') deferred.resolve();
+      // Not Authenticated
+      else { $rootScope.message = 'You need to log in.';
+      deferred.reject();
+      $location.url('/#/login');
+      }
+    });
+
+    return deferred.promise;
+  };
+
   $httpProvider.interceptors.push(function($q, $location) {
     return {
       response: function(response) {
@@ -44,56 +62,48 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
             url: '/user',
             templateUrl: 'Templates/user.html',
             controller: 'MainCtrl',
-            resolve: {
-              checkLogin: function (MainSvc) {
-                return MainSvc.checkLoggedin;
-              }
-            }
+
         })
         .state('user.dashboard', {
             url: '/dashboard',
             templateUrl: 'Templates/dashboard.html',
             controller: 'MainCtrl',
             resolve: {
-              checkLogin: function (MainSvc) {
-                return MainSvc.checkLoggedin;
-              }
+              checkAuth: checkLoggedin
             }
+
         })
         .state('user.clients', {
             url: '/clients',
             templateUrl: 'Templates/clients.html',
             controller: 'ClientCtrl',
             resolve: {
-              checkLogin: function (MainSvc) {
-                return MainSvc.checkLoggedin;
-              }
+              checkAuth: checkLoggedin
             }
+
         })
         .state('user.inventory', {
             url: '/inventory',
             templateUrl: 'Templates/inventory.html',
             controller: 'InventoryCtrl',
             resolve: {
-              checkLogin: function (MainSvc) {
-                return MainSvc.checkLoggedin;
-              }
+              checkAuth: checkLoggedin
             }
+
         })
         .state('user.profile', {
             url: '/profile',
             templateUrl: 'Templates/userProfile.html',
             controller: 'MainCtrl',
             resolve: {
-              checkLogin: function (MainSvc) {
-                return MainSvc.checkLoggedin;
-              }
+              checkAuth: checkLoggedin
             }
+
         });
 
 
     $urlRouterProvider
-        .otherwise('/login');
+        .otherwise('/home');
 
     var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
       'contrastDefaultColor': 'light',

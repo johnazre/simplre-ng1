@@ -78,7 +78,7 @@ var requireAuth = function(req, res, next) {
   if (!req.isAuthenticated()) {
     res.redirect('/#/login');
   }
-  return next();
+  else { next(); }
 };
 
 app.get("/api/auth/", passport.authenticate("facebook"));
@@ -99,7 +99,7 @@ app.get("/me", requireAuth, function(req, res){
 });
 
 app.get("/checklogged", function(req, res){
-    res.json(req.isAuthenticated());
+    res.send(req.isAuthenticated() ? req.user : '0');
 });
 
 app.get('/logout',function(req, res) {
