@@ -24,13 +24,24 @@
     <md-subheader>Management</md-subheader>
      <md-divider></md-divider>
     <md-list-item ng-repeat="item in admin">
-      <a>
+      <a ui-sref="{{item.link}}">
         <md-item-content md-ink-ripple layout="row" layout-align="start center">
           <div class="inset">
             <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
           </div>
           <div class="inset md-subhead">{{item.title}}
           </div>
+        </md-item-content>
+      </a>
+      <md-divider></md-divider>
+    </md-list-item>
+    <md-list-item>
+      <a href="/logout">
+        <md-item-content md-ink-ripple layout="row" layout-align="start center">
+          <div class="inset">
+            <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+          </div>
+          <div class="inset md-subhead">Log Out</div>
         </md-item-content>
       </a>
       <md-divider></md-divider>

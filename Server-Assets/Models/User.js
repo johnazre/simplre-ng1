@@ -1,15 +1,12 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: String,
+  name: String,
   facebook: {
     id: String,
     token: String,
     name: String,
+    email: String,
   },
 
   listingContract: {type: mongoose.Schema.Types.ObjectId, ref: 'ListingContract'},

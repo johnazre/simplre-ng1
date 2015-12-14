@@ -9,7 +9,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var secret = require("./secret");
 
 var app = express();
-var port = 8001;
+var port = 8000;
 
 //-----------Importing Controllers-----------//
 var ListingCtrl = require('./Server-Assets/Controllers/ListingCtrl');
@@ -46,33 +46,33 @@ passport.use(new FacebookStrategy({
     clientID: secret.fb.clientID,
     clientSecret: secret.fb.clientSecret,
     callbackURL: "http://localhost:"+port+"/api/auth/callback",
-},  function(accessToken, refreshToken, profile, done) {
-        console.log('Refresh:', refreshToken)
-	    	process.nextTick(function(){
-	    		User.findOne({'facebook.id': profile.id}, function(err, user){
-	    			if(err)
-	    				return done(err);
-	    			if(user)
-	    				return done(null, user);
-	    			else {
-	    				var newUser = new User();
-	    				newUser.facebook.id = profile.id;
-	    				newUser.facebook.token = refreshToken;
-	    				newUser.facebook.name = profile.displayName;
+    profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified']
+    },  function(accessToken, refreshToken, profile, done) {
+  	    	process.nextTick(function(){
+  	    		User.findOne({'facebook.id': profile.id}, function(err, user){
+  	    			if(err)
+  	    				return done(err);
+  	    			if(user)
+  	    				return done(null, user);
+  	    			else {
+  	    				var newUser = new User();
+  	    				newUser.facebook.id = profile.id;
+  	    				newUser.facebook.token = accessToken;
+  	    				newUser.facebook.name = profile._json.first_name + " " + profile._json.last_name;
+                newUser.facebook.email = profile._json.email;
 
-	    				newUser.save(function(err){
-	    					if(err)
-	    						throw err;
-	    					return done(null, newUser);
-	    				})
-	    				console.log(profile);
-	    			}
-	    		});
-	    	});
-	    }
+  	    				newUser.save(function(err){
+  	    					if(err)
+  	    						throw err;
+  	    					return done(null, newUser);
+  	    				})
+  	    				console.log(profile);
+  	    			}
+  	    		});
+  	    	});
+  	    }
 
 ));
-
 
 app.get("/api/auth/", passport.authenticate("facebook"));
 app.get("/api/auth/callback", passport.authenticate("facebook", {
@@ -91,9 +91,10 @@ app.get("/me", function(req, res){
     res.json(req.user);
 });
 
-
-// app.post('/login', function)
-
+app.get('/logout',function(req, res) {
+  req.logout();
+  res.redirect('/#/login');
+})
 
 //-----------Client Endpoints-----------//
 app.get('/api/client', ClientCtrl.read);

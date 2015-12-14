@@ -10,7 +10,6 @@ module.exports = {
   },
 
   read: function(req, res) {
-    console.log('req.query: ', req.query);
     Purchase.find(req.query)
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);

@@ -3,21 +3,18 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     $mdSidenav(menuId).toggle();
   };
   $scope.menu = [{
-    link: 'user.dashboard',
+    link: 'user_state.dashboard',
     title: 'Dashboard'
   }, {
-    link: 'user.clients',
+    link: 'user_state.clients',
     title: 'Clients',
   }, {
-    link: 'user.inventory',
+    link: 'user_state.inventory',
     title: 'Inventory',
   }];
   $scope.admin = [{
-    link: '',
+    link: 'user_state.clients',
     title: 'My Account',
-  }, {
-    link: 'showListBottomSheet($event)',
-    title: 'Log Out',
   }];
 
   $scope.getValue = function () {

@@ -1,6 +1,7 @@
 var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
-app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
 
     $stateProvider
         .state('home', {
@@ -18,22 +19,27 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: 'Templates/userlogin.html',
             controller: 'RegisterCtrl'
         })
-        .state('user', {
-            url: '/user',
-            templateUrl: 'Templates/userLogin.html',
+        .state('logout', {
+            url: '/logout',
+            templateUrl: 'Templates/loggedout.html',
+            controller: 'RegisterCtrl'
+        })
+        .state('user_state', {
+            url: '/user_state',
+            templateUrl: 'Templates/user_state.html',
             controller: 'MainCtrl'
         })
-        .state('user.dashboard', {
+        .state('user_state.dashboard', {
             url: '/dashboard',
             templateUrl: 'Templates/dashboard.html',
             controller: 'MainCtrl'
         })
-        .state('user.clients', {
+        .state('user_state.clients', {
             url: '/clients',
             templateUrl: 'Templates/clients.html',
             controller: 'ClientCtrl'
         })
-        .state('user.inventory', {
+        .state('user_state.inventory', {
             url: '/inventory',
             templateUrl: 'Templates/inventory.html',
             controller: 'InventoryCtrl'
@@ -46,21 +52,20 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider
         .otherwise('/home');
-});
 
-app.config(function($mdThemingProvider) {
-  var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
-    'contrastDefaultColor': 'light',
-    'contrastDarkColors': ['50'],
-    '50': 'ffffff'
-  });
-  $mdThemingProvider.definePalette('customBlue', customBlueMap);
-  $mdThemingProvider.theme('default')
-    .primaryPalette('customBlue', {
-      'default': '500',
-      'hue-1': '50'
-    })
-    .accentPalette('pink');
-  $mdThemingProvider.theme('input', 'default')
-    .primaryPalette('grey')
+    var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
+      'contrastDefaultColor': 'light',
+      'contrastDarkColors': ['50'],
+      '50': 'ffffff'
+    });
+    $mdThemingProvider.definePalette('customBlue', customBlueMap);
+    $mdThemingProvider.theme('default')
+      .primaryPalette('customBlue', {
+        'default': '500',
+        'hue-1': '50'
+      })
+      .accentPalette('pink');
+    $mdThemingProvider.theme('input', 'default')
+      .primaryPalette('grey')
+
 });
