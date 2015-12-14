@@ -74,9 +74,16 @@ passport.use(new FacebookStrategy({
 
 ));
 
+var requireAuth = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    res.redirect('/#/login');
+  }
+  return next();
+};
+
 app.get("/api/auth/", passport.authenticate("facebook"));
 app.get("/api/auth/callback", passport.authenticate("facebook", {
-    successRedirect: "/#/home",
+    successRedirect: "/#/user/dashboard",
     failureRedirect: "/#/login"
 }));
 
@@ -87,13 +94,21 @@ passport.deserializeUser(function(obj, done){
     done(null, obj);
 });
 
-app.get("/me", function(req, res){
+app.get("/me", requireAuth, function(req, res){
     res.json(req.user);
+});
+
+app.get("/checklogged", function(req, res){
+    res.json(req.isAuthenticated());
 });
 
 app.get('/logout',function(req, res) {
   req.logout();
   res.redirect('/#/login');
+})
+
+app.get('/#/user', requireAuth, function(req, res) {
+
 })
 
 //-----------Client Endpoints-----------//

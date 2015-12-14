@@ -1,13 +1,29 @@
 var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
 
-app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $mdThemingProvider) {
+app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
+
+  $httpProvider.interceptors.push(function($q, $location) {
+    return {
+      response: function(response) {
+        // do something on success
+        return response;
+      },
+
+      responseError: function(response) {
+        if (response.status === 401){
+          $location.url('/#/login');
+        }
+        return $q.reject(response);
+      }
+    };
+  });
 
     $stateProvider
         .state('home', {
             url: '/home',
             templateUrl: 'Templates/home.html',
-            controller: 'MainCtrl'
+            controller: 'MainCtrl',
         })
         .state('register', {
             url: '/register',
@@ -24,34 +40,60 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $htt
             templateUrl: 'Templates/loggedout.html',
             controller: 'RegisterCtrl'
         })
-        .state('user_state', {
-            url: '/user_state',
-            templateUrl: 'Templates/user_state.html',
-            controller: 'MainCtrl'
+        .state('user', {
+            url: '/user',
+            templateUrl: 'Templates/user.html',
+            controller: 'MainCtrl',
+            resolve: {
+              checkLogin: function (MainSvc) {
+                return MainSvc.checkLoggedin;
+              }
+            }
         })
-        .state('user_state.dashboard', {
+        .state('user.dashboard', {
             url: '/dashboard',
             templateUrl: 'Templates/dashboard.html',
-            controller: 'MainCtrl'
+            controller: 'MainCtrl',
+            resolve: {
+              checkLogin: function (MainSvc) {
+                return MainSvc.checkLoggedin;
+              }
+            }
         })
-        .state('user_state.clients', {
+        .state('user.clients', {
             url: '/clients',
             templateUrl: 'Templates/clients.html',
-            controller: 'ClientCtrl'
+            controller: 'ClientCtrl',
+            resolve: {
+              checkLogin: function (MainSvc) {
+                return MainSvc.checkLoggedin;
+              }
+            }
         })
-        .state('user_state.inventory', {
+        .state('user.inventory', {
             url: '/inventory',
             templateUrl: 'Templates/inventory.html',
-            controller: 'InventoryCtrl'
+            controller: 'InventoryCtrl',
+            resolve: {
+              checkLogin: function (MainSvc) {
+                return MainSvc.checkLoggedin;
+              }
+            }
+        })
+        .state('user.profile', {
+            url: '/profile',
+            templateUrl: 'Templates/userProfile.html',
+            controller: 'MainCtrl',
+            resolve: {
+              checkLogin: function (MainSvc) {
+                return MainSvc.checkLoggedin;
+              }
+            }
         });
 
-        // $locationProvider.html5Mode({
-        //   enabled: true,
-        //   requireBase: false
-        // });
 
     $urlRouterProvider
-        .otherwise('/home');
+        .otherwise('/login');
 
     var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
       'contrastDefaultColor': 'light',
@@ -67,5 +109,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $htt
       .accentPalette('pink');
     $mdThemingProvider.theme('input', 'default')
       .primaryPalette('grey')
+
+
 
 });
