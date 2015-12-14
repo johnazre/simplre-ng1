@@ -4,12 +4,11 @@
 
       <!-- Form Name -->
       <legend>Listing Form</legend>
-
       <!-- Text input-->
       <div class="form-group">
         <label class="col-md-2 control-label">Client</label>
         <div class="col-md-6">
-          <input class="form-control input-md" placeholder="Street, City, State, Zip..." required="" type="text" ng-model="listings.client">
+          <select ng-options="client.name for client in clients track by client._id" class="form-control" id="buyerClient" ng-model="listing.client"></select>
         </div>
       </div>
 
@@ -17,7 +16,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="purchaseClient">Address</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="listingAddress" placeholder="Client" required="" type="text" ng-model="listings.address">
+          <input class="form-control input-md" id="listingAddress" placeholder="Client" required="" type="text" ng-model="listing.address">
         </div>
       </div>
 
@@ -25,7 +24,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Status</label>
         <div class="col-md-6">
-          <select class="form-control" id="listingAddress" ng-model="listings.status">
+          <select class="form-control" id="listingAddress" ng-model="listing.status">
             <option value="Pre-signed">Pre-signed</option>
             <option value="Active">Active</option>
             <option value="Pending">Pending</option>
@@ -39,7 +38,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Source</label>
         <div class="col-md-6">
-          <select class="form-control" id="listingSource" ng-model="listings.source">
+          <select class="form-control" id="listingSource" ng-model="listing.source">
             <option value="Friend">Friend</option>
             <option value="Family">Family</option>
             <option value="Lead Website">Lead Website</option>
@@ -52,7 +51,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="listPrice">List Price</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="listPrice" name="listPrice" placeholder="List Price" type="text" ng-model="listings.listPrice">
+          <input class="form-control input-md" id="listPrice" name="listPrice" placeholder="List Price" type="text" ng-model="listing.listPrice">
 
         </div>
       </div>
@@ -61,7 +60,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="salePrice">Sale Price</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="salePrice" name="salePrice" placeholder="Sale Price" type="text" ng-model="listings.salePrice">
+          <input class="form-control input-md" id="salePrice" name="salePrice" placeholder="Sale Price" type="text" ng-model="listing.salePrice">
 
         </div>
       </div>
@@ -70,7 +69,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="commissionPercentage">Commission %</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="commissionPercentage" name="commissionPercentage" placeholder="Commission %" type="text" ng-model="listings.commission">
+          <input class="form-control input-md" id="commissionPercentage" name="commissionPercentage" placeholder="Commission %" type="text" ng-model="listing.commission">
 
         </div>
       </div>
@@ -79,7 +78,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Units</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="listingUnits" placeholder="Units" type="text" ng-model="listings.units">
+          <input class="form-control input-md" id="listingUnits" placeholder="Units" type="text" ng-model="listing.units">
 
         </div>
       </div>
@@ -88,7 +87,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label" for="listingGCI">GCI</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="listingGCI" placeholder="GCI" type="text" ng-model="listings.gci">
+          <input class="form-control input-md" id="listingGCI" placeholder="GCI" type="text" ng-model="listing.gci">
 
         </div>
       </div>
@@ -97,7 +96,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Company $</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="companyDollar" placeholder="Company $" type="text" ng-model="listings.companyDollar">
+          <input class="form-control input-md" id="companyDollar" placeholder="Company $" type="text" ng-model="listing.companyDollar">
 
         </div>
       </div>
@@ -106,7 +105,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Royalty</label>
         <div class="col-md-4">
-          <input class="form-control input-md" id="listingRoyalty" placeholder="Royalty" type="text" ng-model="listings.royalty">
+          <input class="form-control input-md" id="listingRoyalty" placeholder="Royalty" type="text" ng-model="listing.royalty">
         </div>
       </div>
 
@@ -114,7 +113,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label"> Referral $ Paid </label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="referralPaid" placeholder="ReferralPaid" type="text" ng-model="listings.referralPaid">
+          <input class="form-control input-md" id="referralPaid" placeholder="ReferralPaid" type="text" ng-model="listing.referralPaid">
         </div>
       </div>
 
@@ -122,7 +121,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">E&O</label>
         <div class="col-md-4">
-          <input id="eAndO" class=" form-control id="eAndO" type=" input-md" text" placeholder="E&O" ng-model="listings.eo">
+          <input id="eAndO" class=" form-control id="eAndO" type=" input-md" text" placeholder="E&O" ng-model="listing.eo">
 
         </div>
       </div>
@@ -131,7 +130,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Mortgage Company</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="mortgageCompany" placeholder="Mortgage Company" type="text" ng-model="listings.mortgageCompany">
+          <input class="form-control input-md" id="mortgageCompany" placeholder="Mortgage Company" type="text" ng-model="listing.mortgageCompany">
 
         </div>
       </div>
@@ -140,7 +139,7 @@
       <div class="form-group">
         <label class="col-md-2 control-label">Title/Escrow Company</label>
         <div class="col-md-6">
-          <input class="form-control input-md" id="titleEscrowCompany" placeholder="Title/Escrow Company" type="text" ng-model="listings.titleEscrowCompany">
+          <input class="form-control input-md" id="titleEscrowCompany" placeholder="Title/Escrow Company" type="text" ng-model="listing.titleEscrowCompany">
 
         </div>
       </div>

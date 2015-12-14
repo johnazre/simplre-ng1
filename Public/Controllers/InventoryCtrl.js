@@ -77,7 +77,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 
   $scope.getListings = function() {
     ListingSvc.getListings().then(function(res) {
-      console.log(res)
+      // console.log(res)
       $scope.listings = res.data;
     });
   };
@@ -90,7 +90,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 
   $scope.getClients = function() {
     ClientSvc.getClients().then(function(res) {
-      console.log(res)
+      // console.log(res)
       $scope.clients = res.data;
     });
   };
@@ -104,7 +104,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 
   $scope.getPurchases = function() {
     PurchaseSvc.getPurchases().then(function(res) {
-      console.log(res)
+      // console.log(res)
       $scope.purchases = res.data;
     });
   };

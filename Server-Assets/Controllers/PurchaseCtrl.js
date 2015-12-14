@@ -11,6 +11,7 @@ module.exports = {
 
   read: function(req, res) {
     Purchase.find(req.query)
+    .populate('client')
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);
       res.send(result);
@@ -20,6 +21,7 @@ module.exports = {
   readOne: function(req, res) {
     Purchase
     .find({_id: req.params.id})
+    .populate('client')
     .exec()
     .then(function(result) {
       return res.send(result);

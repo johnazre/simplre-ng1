@@ -3,7 +3,7 @@ var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
 
 app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
 
-  var checkLoggedin = function($q, $timeout, $http, $location, $rootScope){
+  var checkLoggedin = function($q, $http, $location){
     // Initialize a new promise
     var deferred = $q.defer();
     // Make an AJAX call to check if the user is logged in
@@ -12,9 +12,9 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
       // Authenticated
       if (user !== '0') deferred.resolve();
       // Not Authenticated
-      else { $rootScope.message = 'You need to log in.';
-      deferred.reject();
-      $location.url('/#/login');
+      else {
+        deferred.reject();
+        $location.url('/#/login');
       }
     });
 

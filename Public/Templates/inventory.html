@@ -30,7 +30,7 @@
             <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
             <h3>{{listing.address}}</h3>
             <h4>{{listing.listPrice}}</h4>
-            <p>{{listing.client}}</p>
+            <p>{{listing.client.name}}</p>
           </div>
         <md-divider></md-divider>
         </md-list-item>
@@ -69,7 +69,7 @@
       <md-list-item class="md-3-line" ng-click="showBuyerModal($event, purchase)" ng-repeat="purchase in purchases">
         <div class="md-list-item-text" >
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
-          <h3>{{purchase.client}}</h3>
+          <h3>{{purchase.client.name}}</h3>
           <h4>{{purchase.address}}</h4>
           <p>{{purchase.offerPrice}}</p>
         </div>
