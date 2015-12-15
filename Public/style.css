@@ -2,20 +2,60 @@
   width: 80%;
 }
 
-,form-group{
+.form-group{
   margin-left: -100px;
 }
 
 .login-container{
   height: 100%;
-  background-color: rgb(102, 255, 178);
-}
-
-.clientSubmitButton{
-
+  background-color: #dfeef3;
 }
 
 .boxes{
   /*border: 1px dashed black;*/
-  padding: 50px 0;
+  padding: 30px 0 0 0;
+}
+
+.home-page{
+  height: 100%;
+  background-color: #dbe7db;
+}
+
+.row > .home-page-img{
+  padding: 0px;
+}
+
+.row > .home-page-img > img {
+  width: 100%;
+}
+
+.home-page-menu{
+  background-color: #dfeef3 !important;
+}
+
+.home-page-menu > h2 > img{
+  padding-top: 50px;
+  padding-left: 40px;
+}
+
+md-toolbar.home-page-menu > h1{
+  padding-top: 25px;
+  padding-left: 40px;
+  font-family: 'Syncopate', sans-serif !important;
+  color: black;
+}
+
+md-toolbar{
+  position: relative;
+}
+
+md-toolbar > div.container{
+  position: absolute;
+  top: 30px;
+  right: 10%;
+  font-family: 'Syncopate', sans-serif !important;
+}
+
+div > h2 {
+  color: black;
 }
