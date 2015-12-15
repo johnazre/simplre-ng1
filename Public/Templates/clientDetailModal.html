@@ -8,7 +8,7 @@
 
       <!-- Client Name-->
       <div class="form-group">
-        <label class="col-md-3 control-label" for="clientName">ID</label>
+        <label class="col-md-3 control-label" for="clientName">Name</label>
         <div class="col-md-6">
           <input id="editClientAttr" readonly name="clientName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='clients.name'>
         </div>
@@ -78,7 +78,7 @@
         </div>
       </div>
 
-
+    </form>
 
 
 
@@ -86,10 +86,9 @@
 
     <div class="row">
       <div class="col-md-offset-6">
-        <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editClientFields()'>Edit</md-button>
-        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='postClient(name, email, phone, type, source)'>Submit</md-button>
+        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='putClient($event, clients._id, clients.name, clients.email, clients.phone, clients.type, clients.buyerStatus, clients.sellerStatus, clients.source)'>Edit</md-button>
       </div>
     </div>
-  </form>
+
 
 </div>

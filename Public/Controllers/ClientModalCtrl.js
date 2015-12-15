@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ClientModalCtrl', function($scope, ClientSvc) {
+angular.module('simplreApp').controller('ClientModalCtrl', function($scope, ClientSvc, clients) {
 
 
   $scope.editClientFields = function () {
@@ -12,14 +12,23 @@ angular.module('simplreApp').controller('ClientModalCtrl', function($scope, Clie
   };
 
 
-  $scope.postClient = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
-    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then( function (res) {
+  $scope.postClient = function(ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+    console.log(ev);
+    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
+      console.log(res);
+    });
+  };
+
+  $scope.putClient = function (ev, id, name, email, phone, type, buyerStatus, sellerStatus, source) {
+    console.log(ev);
+
+    ClientSvc.editClient(id, name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res){
       console.log(res);
     });
   };
 
 
-
+$scope.clients = clients;
 
 
 

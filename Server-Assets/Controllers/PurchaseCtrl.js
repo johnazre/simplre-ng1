@@ -10,7 +10,7 @@ module.exports = {
   },
 
   read: function(req, res) {
-    PurchaseContract.find(req.query)
+    Purchase.find(req.query)
     .populate('client')
     .exec(function(err, result) {
       if (err) return res.status(500).send(err);
@@ -31,8 +31,9 @@ module.exports = {
   },
 
   update: function(req, res) {
-    Purchase.update({_id: req.params.id}, { $set: req.body }, function(err, result) {
-      console.log(result);
+    Purchase
+    .findByIdAndUpdate(req.params.id, req.body, function(err, result) {
+      console.log(req.body);
       if (err) return res.status(500).send(err);
       res.send(result);
     });

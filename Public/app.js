@@ -62,7 +62,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
             url: '/user',
             templateUrl: 'Templates/user.html',
             controller: 'MainCtrl',
-
         })
         .state('user.dashboard', {
             url: '/dashboard',
@@ -71,7 +70,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
             resolve: {
               checkAuth: checkLoggedin
             }
-
         })
         .state('user.clients', {
             url: '/clients',
@@ -80,7 +78,6 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
             resolve: {
               checkAuth: checkLoggedin
             }
-
         })
         .state('user.inventory', {
             url: '/inventory',
@@ -89,12 +86,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
             resolve: {
               checkAuth: checkLoggedin
             }
-
         })
         .state('user.profile', {
             url: '/profile',
             templateUrl: 'Templates/userProfile.html',
-            controller: 'MainCtrl',
+            controller: 'UserProfileCtrl',
             resolve: {
               checkAuth: checkLoggedin
             }

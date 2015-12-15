@@ -27,7 +27,7 @@ angular.module('simplreApp').service('ClientSvc', function ($http) {
     });
   };
 
-  this.putClients = function (id, name, email, phone, type, buyerStatus, sellerStatus, source) {
+  this.editClient = function (id, name, email, phone, type, buyerStatus, sellerStatus, source) {
     return $http({
     method: "PUT",
     url: "/api/client/" + id,

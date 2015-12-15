@@ -23,10 +23,10 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
     });
   };
 
-  $scope.putClient = function (ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+  $scope.putClient = function (ev, id, name, email, phone, type, buyerStatus, sellerStatus, source) {
     console.log(ev);
 
-    ClientSvc.putClient(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res){
+    ClientSvc.putClient(id, name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res){
       console.log(res);
     });
   };
@@ -51,13 +51,16 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
     console.log(ev);
   };
 
-  $scope.clientDetailModal = function(ev) {
+  $scope.clientDetailModal = function(ev, thisClient) {
     $mdDialog.show({
       controller: 'ClientModalCtrl',
       templateUrl: 'Templates/clientDetailModal.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true,
+      locals: {
+        clients: thisClient
+      }
     })
   };
 

@@ -8,7 +8,7 @@
     <div class="form-group">
       <label class="col-md-2 control-label">Name</label>
       <div class="col-md-6">
-      <input id="userProfileName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='name'>
+      <input id="userProfileName" type="text" placeholder="Name..." class="form-control input-md" required="" ng-model='user.facebook.name'>
       </div>
     </div>
 
@@ -30,8 +30,7 @@
 
     <div class="row">
       <div class="col-md-offset-6">
-        <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editBuyerFields()'>Edit</md-button>
-        <md-button id="clientSubmitButton" class='md-primary md-raised' ng-click='postPurchase($event, client._id, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany)'>Submit</md-button>
+        <md-button id="clientEditButton" class='md-primary md-raised' ng-click='editUserProfile()'>Save</md-button>
       </div>
     </div>
   </form>
