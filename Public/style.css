@@ -56,6 +56,6 @@ md-toolbar > div.container{
   font-family: 'Syncopate', sans-serif !important;
 }
 
-div > h2 {
+div > .login-button-homepage {
   color: black;
 }

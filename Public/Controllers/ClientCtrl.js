@@ -7,18 +7,26 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
       $scope.clients = res.data;
     });
   };
-
-  $scope.getOneClient = function(id) {
-    ClientSvc.getOneClient(id).then(function(response) {
-      $scope.singleClient = response.data;
-    });
-  };
+  //
+  // $scope.getOneClient = function(id) {
+  //   ClientSvc.getOneClient(id).then(function(response) {
+  //     $scope.singleClient = response.data;
+  //   });
+  // };
 
   $scope.getClients();
 
   $scope.postClient = function(ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
     console.log(ev);
     ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
+      console.log(res);
+    });
+  };
+
+  $scope.putClient = function (ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+    console.log(ev);
+
+    ClientSvc.putClient(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res){
       console.log(res);
     });
   };
@@ -43,16 +51,13 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
     console.log(ev);
   };
 
-  $scope.clientDetailModal = function(ev, thisClient) {
+  $scope.clientDetailModal = function(ev) {
     $mdDialog.show({
       controller: 'ClientModalCtrl',
       templateUrl: 'Templates/clientDetailModal.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: true,
-      locals: {
-        client: thisClient
-      }
     })
   };
 

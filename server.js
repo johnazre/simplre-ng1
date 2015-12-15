@@ -107,34 +107,30 @@ app.get('/logout',function(req, res) {
   res.redirect('/#/login');
 })
 
-app.get('/#/user', requireAuth, function(req, res) {
-
-})
-
 //-----------Client Endpoints-----------//
 app.get('/api/client', ClientCtrl.read);
 app.get('/api/client/:id', ClientCtrl.readOne);
 app.post('/api/client', ClientCtrl.create);
-app.put('/api/client', ClientCtrl.update);
+app.put('/api/client/:id', ClientCtrl.update);
 app.delete('/api/client', ClientCtrl.delete);
 
 //-----------Listing Contract Endpoints-----------//
 app.get('/api/listing', ListingCtrl.read);
 app.get('/api/listing/:id', ListingCtrl.readOne);
 app.post('/api/listing', ListingCtrl.create);
-app.put('/api/listing', ListingCtrl.update);
+app.put('/api/listing/:id', ListingCtrl.update);
 app.delete('/api/listing', ListingCtrl.delete);
 
 //-----------Purchase Contract Endpoints-----------//
 app.get('/api/purchase', PurchaseCtrl.read);
 app.get('/api/purchase/:id', PurchaseCtrl.readOne);
 app.post('/api/purchase', PurchaseCtrl.create);
-app.put('/api/purchase', PurchaseCtrl.update);
+app.put('/api/purchase/:id', PurchaseCtrl.update);
 app.delete('/api/purchase', PurchaseCtrl.delete);
 
 //-----------User Endpoints-----------//
 app.get('/api/user', UserCtrl.read);
 app.get('/api/user/:id', UserCtrl.readOne);
 // app.post('/api/user', UserCtrl.create);
-app.put('/api/user', UserCtrl.update);
+app.put('/api/user/:id', UserCtrl.update);
 app.delete('/api/user', UserCtrl.delete);

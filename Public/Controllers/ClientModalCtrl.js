@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ClientModalCtrl', function($scope, ClientSvc, client) {
+angular.module('simplreApp').controller('ClientModalCtrl', function($scope, ClientSvc) {
 
 
   $scope.editClientFields = function () {
@@ -10,9 +10,6 @@ angular.module('simplreApp').controller('ClientModalCtrl', function($scope, Clie
   $scope.editListingFields = function () {
     document.getElementById('editListAttr').hasAttribute('disabled') ? document.getElementById('editListAttr').removeAttribute('disabled') : document.getElementById('editListAttr').setAttribute('disabled', true);
   };
-
-  $scope.clients = client;
-  console.log(client);
 
 
   $scope.postClient = function (name, email, phone, type, buyerStatus, sellerStatus, source) {

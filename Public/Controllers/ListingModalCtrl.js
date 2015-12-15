@@ -17,6 +17,13 @@ angular.module('simplreApp').controller('ListingModalCtrl', function($scope, Cli
     });
   };
 
+  $scope.putListing = function (client, address, status, source, listPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
+
+    ListingSvc.putListing(client, address, status, source, listPrice, salePrice, commission, units, gci, companyDollar, royalty, referralPaid, eo, mortgageCompany, titleEscrowCompany).then(function(res){
+      console.log(res);
+    });
+  };
+
   console.log(listing);
   $scope.listing = listing;
 
