@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $mdDialog, $mdMedia) {
+angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $mdDialog, $mdMedia, UserSvc) {
   $scope.toggleSidenav = function(menuId) {
     $mdSidenav(menuId).toggle();
   };
@@ -20,6 +20,13 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
   $scope.getValue = function () {
     console.log($scope.user.listingSigned);
   }
+
+  $scope.getUserData = function () {
+    UserSvc.getUserData().then(function(res) {
+      $scope.user = res.data;
+      console.log($scope.user);
+    })
+  }();
 
   var originatorEv;
   $scope.openMenu = function($mdOpenMenu, ev) {

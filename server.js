@@ -67,7 +67,7 @@ passport.use(new FacebookStrategy({
   	    						throw err;
   	    					return done(null, newUser);
   	    				})
-  	    				console.log(profile);
+  	    				console.log(user);
   	    			}
   	    		});
   	    	});
