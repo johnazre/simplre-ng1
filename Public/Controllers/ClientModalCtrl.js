@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ModalController', function($scope, ClientSvc, client) {
+angular.module('simplreApp').controller('ClientModalCtrl', function($scope, ClientSvc, client) {
 
 
   $scope.editClientFields = function () {

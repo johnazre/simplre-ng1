@@ -1,9 +1,9 @@
-angular.module('simplreApp').controller('ListingModalCtrl', function($scope, $timeout, ClientSvc, ListingSvc, listing) {
+angular.module('simplreApp').controller('ListingModalCtrl', function($scope, ClientSvc, ListingSvc, listing) {
 
   $scope.getClients = function() {
     ClientSvc.getClients().then(function(res) {
       $scope.clients = res.data;
-      $scope.listing.client = listing.client;
+      // $scope.listing.client = listing.client;
       // console.log($scope.clients)
     });
   }();
@@ -17,6 +17,7 @@ angular.module('simplreApp').controller('ListingModalCtrl', function($scope, $ti
     });
   };
 
+  console.log(listing);
   $scope.listing = listing;
 
 });

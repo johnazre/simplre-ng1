@@ -21,4 +21,10 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     console.log($scope.user.listingSigned);
   }
 
+  var originatorEv;
+  $scope.openMenu = function($mdOpenMenu, ev) {
+    originatorEv = ev;
+    $mdOpenMenu(ev);
+  };
+
 });

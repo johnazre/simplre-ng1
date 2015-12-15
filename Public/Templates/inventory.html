@@ -1,4 +1,6 @@
-<div class="listings-container" id='popupContainer' style="margin-bottom: 15px; margin-top: -28px;">
+
+<!-- Listings continaer -->
+<div class="listings-container" id='popupContainer' style="margin-bottom: 15px;">
   <md-toolbar layout-align='center end'>
     <div class="md-toolbar-tools">
       <h2>
@@ -12,51 +14,44 @@
           <md-menu-item>
             <md-button aria-label="addListing" ng-click="showAddListingModal($event)">
               <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
-            <p style="color:black;">
-               Add Listing...
-            </p>
+              <p style="color:black;">Add Listing...</p>
             </md-button>
-            </md-menu-item>
-          </md-menu-content>
-        </md-menu>
-      </div>
-    </md-toolbar>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
 
-    <md-content>
-      <md-list>
-        <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-        <md-list-item class="md-3-line" ng-click="ShowListingModal($event, listing)" ng-repeat="listing in listings">
-          <div class="md-list-item-text">
-            <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
-            <h3>{{listing.address}}</h3>
-            <h4>{{listing.listPrice}}</h4>
-            <p>{{listing.client.name}}</p>
-          </div>
-        <md-divider></md-divider>
-        </md-list-item>
-      </md-list>
 
-    </md-content>
-
+  <md-content>
+    <md-list>
+      <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
+      <md-list-item class="md-3-line" ng-click="ShowListingModal($event, listing)" ng-repeat="listing in listings">
+        <div class="md-list-item-text">
+          <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
+          <h3>{{listing.address}}</h3>
+          <h4>{{listing.listPrice}}</h4>
+          <p>{{listing.client.name}}</p>
+        </div>
+      <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-content>
 </div> <!-- End of listings container -->
 
 <div class="buyers-container" style="margin-bottom: 10px;">
   <md-toolbar layout-align='center end'>
     <div class="md-toolbar-tools">
-      <h2>
-        <span>Current Buyers</span>
-      </h2>
+      <h2><span>Current Buyers</span></h2>
       <md-menu>
         <md-button aria-label="addBuyers" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
           <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
         </md-button>
         <md-menu-content width="4">
           <md-menu-item>
-            <md-button ng-click="showAddBuyerModal($event)" aria-label='addBuyer'>
+            <md-button ng-click="showAddBuyerModal($event, 'pseudo listing')" aria-label='addBuyer'>
               <md-icon aria-label="add" class="s24" md-svg-src="img/ic_add_black_24px.svg"></md-icon>
-              <p style="color:black;">
-                Add Buyer...
-              </p>
+              <p style="color:black;">Add Buyer...</p>
             </md-button>
           </md-menu-item>
         </md-menu-content>
@@ -76,7 +71,6 @@
       <md-divider></md-divider>
       </md-list-item>
     </md-list>
-
   </md-content>
 
 </div> <!-------------- End of Buyers container ---------------->
@@ -84,9 +78,7 @@
 <div class="closed-container" style="margin-bottom: 10px;">
   <md-toolbar layout-align='center end'>
     <div class="md-toolbar-tools">
-      <h2>
-        <span>Closed</span>
-      </h2>
+      <h2><span>Closed</span></h2>
     </div>
   </md-toolbar>
   <md-content>
@@ -102,7 +94,5 @@
       <md-divider></md-divider>
       </md-list-item>
     </md-list>
-
   </md-content>
-
 </div> <!-------------- End of Closed container ---------------->

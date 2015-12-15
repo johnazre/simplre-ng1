@@ -45,7 +45,7 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
 
   $scope.clientDetailModal = function(ev, thisClient) {
     $mdDialog.show({
-      controller: 'ModalController',
+      controller: 'ClientModalCtrl',
       templateUrl: 'Templates/clientDetailModal.html',
       parent: angular.element(document.body),
       targetEvent: ev,

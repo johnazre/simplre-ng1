@@ -1,0 +1,44 @@
+<!-- Top options menu -->
+<div row="row" style="margin-bottom: 15px; margin-top: -28px;">
+  <md-toolbar layout-align='center' >
+    <div class="md-toolbar-toolbar" >
+      <md-menu>
+        <md-button aria-label="addListings" class="md-button-icon" ng-click="openMenu($mdOpenMenu, $event)">
+          <md-icon aria-label="add" class="s24" md-svg-src="img/ic_menu_white_48px.svg"></md-icon>
+        </md-button>
+        <md-menu-content width="4">
+          <md-menu-item>
+            <md-button ui-sref="user.dashboard" aria-label="topMenuDashboard">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_view_array_black_36px.svg"></md-icon>
+              <p style="color:black;">Dashboard</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ui-sref="user.clients" aria-label="topMenuClients">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_group_black_36px.svg"></md-icon>
+              <p style="color:black;">Clients</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ui-sref="user.inventory" aria-label="topMenuInventory">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_home_black_36px.svg"></md-icon>
+              <p style="color:black;">Inventory</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button ui-sref="user.profile" aria-label="topMenuProfile">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_face_black_36px.svg"></md-icon>
+              <p style="color:black;">Profile</p>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button href="/logout" aria-label="topMenuLogout">
+              <md-icon aria-label="add" class="s24" md-svg-src="img/ic_reply_black_36px.svg"></md-icon>
+              <p style="color:black;">Log Out</p>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+    </div>
+  </md-toolbar>
+</div>

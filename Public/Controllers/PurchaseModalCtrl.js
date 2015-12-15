@@ -17,6 +17,6 @@ angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, Pu
   };
 
   $scope.purchases = purchase;
-  // console.log($scope.purchases);
+  console.log($scope.purchases);
 
 });

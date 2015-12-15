@@ -21,7 +21,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
       })
   };
 
-  $scope.showAddListingModal = function(ev, thisClient) {
+  $scope.showAddListingModal = function(ev, thisClient, thisListing) {
     $mdDialog.show({
         controller: "ListingModalCtrl",
         templateUrl: 'Templates/listingInputForm.html',
@@ -29,14 +29,15 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
         targetEvent: ev,
         clickOutsideToClose: true,
         locals: {
-          client: thisClient
+          client: thisClient,
+          listing: thisListing
         }
-      })
+    });
   };
 
   $scope.showAddBuyerModal = function(ev, thisClient) {
     $mdDialog.show({
-        controller: 'PurchaseModalCtrl',
+        controller: 'MainCtrl',
         templateUrl: 'Templates/buyerInputForm.html',
         parent: angular.element(document.body),
         targetEvent: ev,
