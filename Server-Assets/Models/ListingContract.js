@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var ListingContractSchema = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   client: {type: mongoose.Schema.Types.ObjectId, ref: 'Client'},
   address: {
     type: String,

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var clientSchema = new mongoose.Schema({
+  user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   name: {
     type: String,
     required: true,
@@ -21,7 +22,7 @@ var clientSchema = new mongoose.Schema({
   buyerStatus: {
     type: String,
     enum:[
-      'Pre-Approved/Pre-Qualified',
+      'Pre-Approved',
       'Searching',
       'Under Contract',
       'Closed',
@@ -38,10 +39,7 @@ var clientSchema = new mongoose.Schema({
       'Cancelled'
     ]
   },
-  source: {
-    type: String,
-    required: true
-  },
+  source: String,
   listingContract: {type: mongoose.Schema.Types.ObjectId, ref: 'ListingContract'},
   purchaseContract: {type: mongoose.Schema.Types.ObjectId, ref: 'PurchaseContract'},
 

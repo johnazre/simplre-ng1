@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog, $mdMedia, ClientSvc) {
+angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog, $mdMedia, ClientSvc, UserSvc) {
 
 
   $scope.getClients = function() {
@@ -64,7 +64,12 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
     })
   };
 
-
+  $scope.getUserData = function () {
+    UserSvc.getUserData().then(function(res) {
+      $scope.user = res.data;
+      console.log($scope.user);
+    })
+  }();
 
 
 

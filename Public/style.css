@@ -1,3 +1,7 @@
+md-sidebar.md-locked-open{
+  height: 700px !important;
+}
+
 .form-control{
   width: 80%;
 }

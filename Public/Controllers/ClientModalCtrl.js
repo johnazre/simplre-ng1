@@ -12,9 +12,9 @@ angular.module('simplreApp').controller('ClientModalCtrl', function($scope, Clie
   };
 
 
-  $scope.postClient = function(ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+  $scope.postClient = function(ev, user, name, email, phone, type, buyerStatus, sellerStatus, source) {
     console.log(ev);
-    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
+    ClientSvc.postClients(user, name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
       console.log(res);
     });
   };
@@ -28,9 +28,14 @@ angular.module('simplreApp').controller('ClientModalCtrl', function($scope, Clie
   };
 
 
-$scope.clients = clients;
+  $scope.clients = clients;
 
-
+  $scope.getUserData = function () {
+    UserSvc.getUserData().then(function(res) {
+      $scope.user = res.data;
+      console.log($scope.user);
+    })
+  }();
 
 
 

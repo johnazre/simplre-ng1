@@ -26,7 +26,7 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="ShowListingModal($event, listing)" ng-repeat="listing in listings">
+      <md-list-item class="md-3-line" ng-click="ShowListingModal($event, listing)" ng-repeat="listing in listings | filter:{user: user._id}">
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{listing.address}}</h3>
@@ -61,7 +61,7 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="showBuyerModal($event, purchase)" ng-repeat="purchase in purchases">
+      <md-list-item class="md-3-line" ng-click="showBuyerModal($event, purchase)" ng-repeat="purchase in purchases | filter:{user: user._id}">
         <div class="md-list-item-text" >
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{purchase.client.name}}</h3>
@@ -84,7 +84,7 @@
   <md-content>
     <md-list>
       <md-subheader class="md-no-sticky">Click links for more info</md-subheader>
-      <md-list-item class="md-3-line" ng-click="ShowClosedModal($event, closed)" ng-repeat="closed in closeds">
+      <md-list-item class="md-3-line" ng-click="ShowClosedModal($event, closed)" ng-repeat="closed in closeds | filter:{user: user._id}">
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{closed.address}}</h3>

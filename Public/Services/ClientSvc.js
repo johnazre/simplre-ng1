@@ -15,11 +15,11 @@ angular.module('simplreApp').service('ClientSvc', function ($http) {
     });
   }
 
-  this.postClients = function (name, email, phone, type, buyerStatus, sellerStatus, source) {
+  this.postClients = function (user, name, email, phone, type, buyerStatus, sellerStatus, source) {
     return $http({
       method: "POST",
       url: "/api/client",
-      data: {name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
+      data: {createdBy:user, name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
     }).then( function success (response) {
       console.log(response);
     }).catch( function (err) {

@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('InventoryCtrl', function ($scope, PurchaseSvc, ClientSvc, ListingSvc, $mdDialog, $mdMedia) {
+angular.module('simplreApp').controller('InventoryCtrl', function ($scope, PurchaseSvc, ClientSvc, ListingSvc, $mdDialog, $mdMedia, UserSvc) {
 
 
   var originatorEv;
@@ -131,7 +131,12 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 
 //--------------------------------------------------------//
 
-
+  $scope.getUserData = function () {
+    UserSvc.getUserData().then(function(res) {
+      $scope.user = res.data;
+      console.log($scope.user);
+    })
+  }();
 
 
 
