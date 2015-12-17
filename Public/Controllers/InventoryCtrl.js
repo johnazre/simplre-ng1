@@ -113,11 +113,34 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 
 //--------------------------------------------------------//
 
-  $scope.postListing = function(ev, client, address, status, source, listPrice, salePrice, commission, units, gci, companyDollar, royalty, referralPaid, eo, mortgageCompany, titleEscrowCompany) {
-    console.log(ev);
-    console.log(client, address, status, source, listPrice, salePrice, commission, units, gci, companyDollar, royalty, referralPaid, eo, mortgageCompany, titleEscrowCompany);
+$scope.contractDateListing = new Date();
+$scope.projectedCloseDateListing = new Date();
+$scope.actualCloseDateListing = new Date();
+$scope.appraisalDateListing = new Date;
 
-    ListingSvc.postListing(client, address, status, source, listPrice, salePrice, commission, units, gci, companyDollar, royalty, referralPaid, eo, mortgageCompany, titleEscrowCompany).then(function(res) {
+  $scope.postListing = function(ev, user, client, address, status, source, listPrice, salePrice, contractDateListing, projectedCloseDateListing, actualCloseDateListing, appraisalDateListing, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
+    console.log(ev);
+    // console.log("Client ID", client);
+    // console.log("address",address);
+    // console.log("status",status);
+    // console.log("listPrice",listPrice);
+    // console.log("offerPrice",offerPrice);
+    // console.log("contractDate",contractDate);
+    // console.log("projectedCloseDate",projectedCloseDate);
+    // console.log("actualCloseDate",actualCloseDate);
+    // console.log("salePrice",salePrice);
+    // console.log("commissionPercentage",commissionPercentage);
+    // console.log("units",units);
+    // console.log("gci",gci);
+    // console.log("companyDollar",companyDollar);
+    // console.log("royalty",royalty);
+    // console.log("referralPaid",referralPaid);
+    // console.log("eAndO",eAndO);
+    // console.log("appraisalDate",appraisalDate);
+    // console.log("mortgageCompany",mortgageCompany);
+    // console.log("titleEscrowCompany",titleEscrowCompany);
+
+    ListingSvc.postListing( user, client, address, status, source, listPrice, salePrice, contractDateListing, projectedCloseDateListing, actualCloseDateListing, appraisalDateListing, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany).then(function(res) {
       console.log(res);
      });
   };
@@ -127,7 +150,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
   $scope.actualCloseDate = new Date();
   $scope.appraisalDate = new Date;
 
-  $scope.postPurchase = function(ev, user, client, address, status, listPrice, offerPrice, contractDate, projectedCloseDate, actualCloseDate, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, appraisalDate, mortgageCompany, titleEscrowCompany) {
+  $scope.postPurchase = function(ev, user, client, address, status, listPrice, offerPrice, contractDate, projectedCloseDate, actualCloseDate, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, appraisalDate, mortgageCompany, titleEscrowCompany) {
     console.log(ev, "user",user);
     // console.log("Client ID", client);
     // console.log("address",address);
@@ -149,7 +172,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
     // console.log("mortgageCompany",mortgageCompany);
     // console.log("titleEscrowCompany",titleEscrowCompany);
 
-    PurchaseSvc.postPurchase(user, client, address, status, listPrice, offerPrice, contractDate, projectedCloseDate, actualCloseDate, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, appraisalDate, mortgageCompany, titleEscrowCompany).then(function(res) {
+    PurchaseSvc.postPurchase(user, client, address, status, listPrice, offerPrice, contractDate, projectedCloseDate, actualCloseDate, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, appraisalDate, mortgageCompany, titleEscrowCompany).then(function(res) {
       console.log(res);
     });
   };

@@ -31,13 +31,13 @@ angular.module('simplreApp').service('ListingSvc', function ($http, $q) {
     return defer.promise;
   }
 
-  this.postListing = function (user, client, address, status, source, listPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
+  this.postListing = function (user, client, address, status, source, listPrice, salePrice, contractDate, projectedCloseDate, actualCloseDate, appraisalDate, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
     var defer = $q.defer();
 
     $http({
       method: "POST",
       url: "/api/listing",
-      data: {createdBy:user, client:client, address:address, status:status, source:source, listPrice:listPrice, salePrice:salePrice, commissionPercentage:commissionPercentage, units:units, gci:gci, companyDollar:companyDollar, royalty:royalty, referralPaid:referralPaid, eAndO:eAndO, mortgageCompany:mortgageCompany, titleEscrowCompany:titleEscrowCompany}
+      data: {user:user, client:client, address:address, status:status, source:source, listPrice:listPrice, salePrice:salePrice, contractDate:contractDate, projectedCloseDate:projectedCloseDate, actualCloseDateListing:actualCloseDate, appraisalDate:appraisalDate, commissionPercentage:commissionPercentage, units:units, gci:gci, companyDollar:companyDollar, royalty:royalty, referralPaid:referralPaid, eAndO:eAndO, mortgageCompany:mortgageCompany, titleEscrowCompany:titleEscrowCompany}
     }).then(function(response) {
       defer.resolve(response);
     }, function (error) {
