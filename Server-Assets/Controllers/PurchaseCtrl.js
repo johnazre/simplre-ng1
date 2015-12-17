@@ -4,8 +4,11 @@ module.exports = {
   create: function(req, res) {
     var newPurchase = new Purchase(req.body);
     newPurchase.save( function(err, result) {
-      if (err) return res.status(500).send(err);
-      res.send(result);
+      if(err){
+        return res.status(500).send(err);
+        console.log("not working");
+      }
+      else{ res.send(result);}
     });
   },
 

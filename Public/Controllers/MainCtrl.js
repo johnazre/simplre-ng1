@@ -6,6 +6,9 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     link: 'user.dashboard',
     title: 'Dashboard'
   }, {
+    link: '#',
+    title: 'Leads (Coming Soon)',
+  }, {
     link: 'user.clients',
     title: 'Clients',
   }, {
@@ -23,14 +26,10 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     title: 'My Profile',
   }];
 
-  $scope.getValue = function () {
-    console.log($scope.user.listingSigned);
-  }
 
   $scope.getUserData = function () {
     UserSvc.getUserData().then(function(res) {
       $scope.user = res.data;
-      console.log($scope.user);
     })
   }();
 

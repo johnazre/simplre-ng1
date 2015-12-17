@@ -16,11 +16,12 @@ angular.module('simplreApp').controller('ClientCtrl', function($scope, $mdDialog
 
   $scope.getClients();
 
-  $scope.postClient = function(ev, name, email, phone, type, buyerStatus, sellerStatus, source) {
+  $scope.postClient = function(ev, user, name, email, phone, type, buyerStatus, sellerStatus, source) {
     console.log(ev);
-    ClientSvc.postClients(name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
+    ClientSvc.postClients(user, name, email, phone, type, buyerStatus, sellerStatus, source).then(function(res) {
       console.log(res);
     });
+    $scope.getClients();
   };
 
   $scope.putClient = function (ev, id, name, email, phone, type, buyerStatus, sellerStatus, source) {

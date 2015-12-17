@@ -1,53 +1,83 @@
-angular.module('simplreApp').service('ClientSvc', function ($http) {
+angular.module('simplreApp').service('ClientSvc', function ($http, $q) {
 
   this.getClients = function () {
-    return $http({
+
+    var defer = $q.defer();
+
+    $http({
       method: "GET",
       url: "/api/client"
+    }).then(function(response) {
+      console.log(response);
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
     });
 
+    return defer.promise;
   }
 
   this.getOneClient = function (id) {
-    return $http({
+
+    var defer = $q.defer();
+
+    $http({
       method: "GET",
       url: "/api/client/" + id
+    }).then(function(response) {
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
     });
+
+    return defer.promise;
   }
 
   this.postClients = function (user, name, email, phone, type, buyerStatus, sellerStatus, source) {
-    return $http({
+    var defer = $q.defer();
+
+    $http({
       method: "POST",
       url: "/api/client",
-      data: {createdBy:user, name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
-    }).then( function success (response) {
-      console.log(response);
-    }).catch( function (err) {
-      console.log(err);
+      data: {user:user, name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
+    }).then(function(response) {
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
     });
+
+    return defer.promise;
   };
 
   this.editClient = function (id, name, email, phone, type, buyerStatus, sellerStatus, source) {
-    return $http({
-    method: "PUT",
-    url: "/api/client/" + id,
-    data: {name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
-    }).then(function success (response) {
-      console.log(response);
-    }, function notSuccess(response) {
-      console.log(response)
+    var defer = $q.defer();
+
+    $http({
+      method: "PUT",
+      url: "/api/client/" + id,
+      data: {name:name, email:email, phone:phone, type:type, buyerStatus:buyerStatus, sellerStatus:sellerStatus, source:source}
+    }).then(function(response) {
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
     });
+
+    return defer.promise;
   };
 
   this.deleteClients = function (id) {
-    return $http({
+    var defer = $q.defer();
+
+    $http({
       method: "DELETE",
       url: "/api/client/" + id
-    }).then(function success (response) {
-      console.log(response);
-    }, function notSuccess(response) {
-      console.log(response)
+    }).then(function(response) {
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
     });
+
+    return defer.promise;;
   };
 
 });

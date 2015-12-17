@@ -1,4 +1,4 @@
-angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, PurchaseSvc, ClientSvc, purchase, UserSvc) {
+angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, PurchaseSvc, ClientSvc, purchase, UserSvc, $mdDialog, PurchaseSvc) {
 
 
   $scope.getClients = function() {
@@ -7,14 +7,6 @@ angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, Pu
     });
   }();
 
-  $scope.postPurchase = function(ev, id, client, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany) {
-    console.log(ev);
-    // console.log(client, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany);
-
-    PurchaseSvc.postPurchase(id, client, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany).then(function(res) {
-      console.log(res);
-    });
-  };
 
   $scope.putPurchase = function (ev, user, id, client, address, status, listPrice, offerPrice, salePrice, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, inspectionDate, appraisalDate, mortgageCompany, titleEscrowCompany) {
     console.log(ev);
@@ -24,8 +16,16 @@ angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, Pu
     });
   };
 
+
+
+
   $scope.purchases = purchase;
   console.log($scope.purchases);
+
+  $scope.purchases.contractDate = new Date();
+  $scope.purchases.projectedCloseDate = new Date();
+  $scope.purchases.actualCloseDate = new Date();
+  $scope.purchases.appraisalDate = new Date;
 
   $scope.getUserData = function () {
     UserSvc.getUserData().then(function(res) {
@@ -34,5 +34,8 @@ angular.module('simplreApp').controller('PurchaseModalCtrl', function($scope, Pu
     })
   }();
 
+  $scope.closeDialog = function() {
+         $mdDialog.hide();
+  }
 
 });
