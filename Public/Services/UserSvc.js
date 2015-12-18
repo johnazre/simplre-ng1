@@ -16,4 +16,26 @@ angular.module('simplreApp').service('UserSvc', function($http, $q) {
     return defer.promise;
   };
 
+  this.editUserData = function (id, name, email) {
+
+    var defer = $q.defer();
+
+    $http({
+      method: "PUT",
+      url: "/api/user/" + id,
+      data: {
+        facebook : {
+          name: name,
+          email: email
+        }
+      }
+    }).then(function(response) {
+      defer.resolve(response);
+    }, function (error) {
+      console.log(error);
+    });
+
+    return defer.promise;;
+  };
+
 });

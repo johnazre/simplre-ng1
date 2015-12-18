@@ -8,5 +8,12 @@ angular.module('simplreApp').controller('UserProfileCtrl', function($scope, $mdD
     })
   }();
 
+  $scope.editUserData = function (ev, user, name, email) {
+    console.log(ev);
+
+    UserSvc.editUserData(user, name, email).then(function(res){
+      console.log(res);
+    });
+  };
 
 });

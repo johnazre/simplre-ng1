@@ -1,4 +1,4 @@
-var app = angular.module('simplreApp', ['ui.router', 'ngMaterial']);
+var app = angular.module('simplreApp', ['ui.router', 'ngMaterial', 'highcharts-ng']);
 
 
 app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
@@ -66,7 +66,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemi
         .state('user.dashboard', {
             url: '/dashboard',
             templateUrl: 'Templates/dashboard.html',
-            controller: 'MainCtrl',
+            controller: 'DashboardCtrl',
             resolve: {
               checkAuth: checkLoggedin
             }

@@ -8,7 +8,6 @@ angular.module('simplreApp').service('ClientSvc', function ($http, $q) {
       method: "GET",
       url: "/api/client"
     }).then(function(response) {
-      console.log(response);
       defer.resolve(response);
     }, function (error) {
       console.log(error);

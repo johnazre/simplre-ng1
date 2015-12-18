@@ -30,7 +30,7 @@
         <div class="md-list-item-text">
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{listing.address}}</h3>
-          <h4>{{listing.listPrice}}</h4>
+          <h4>{{listing.listPrice | currency}}</h4>
           <p>{{listing.client.name}}</p>
         </div>
       <md-divider></md-divider>
@@ -66,7 +66,7 @@
           <img alt="{{ item.name }}" ng-src="http://placehold.it/50x50" class="md-secondary">
           <h3>{{purchase.client.name}}</h3>
           <h4>{{purchase.address}}</h4>
-          <p>{{purchase.offerPrice}}</p>
+          <p>{{purchase.offerPrice | currency}}</p>
         </div>
       <md-divider></md-divider>
       </md-list-item>

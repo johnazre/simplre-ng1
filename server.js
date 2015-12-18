@@ -7,6 +7,7 @@ var session = require('express-session');
 var passport = require('passport');
 var FacebookStrategy = require('passport-facebook').Strategy;
 var secret = require("./secret");
+var bcrypt = require('bcrypt-nodejs');
 
 var app = express();
 var port = 8000;
@@ -74,6 +75,28 @@ passport.use(new FacebookStrategy({
   	    }
 
 ));
+
+//-----------Passport Local Authentication-----------//
+
+// passport.use(new LocalStrategy(
+//   function(username, password, done) {
+//     User.findOne({ username: username }, function (err, user) {
+//       if (err) {
+//         return done(err);
+//       }
+//       if (!user) {
+//         return done(null, false);
+//       }
+//       if (!user.verifyPassword(password)) {
+//         return done(null, false);
+//       }
+//
+//       return done(null, user);
+//     });
+//   }
+// ));
+
+//---------------------------------------------------//
 
 var requireAuth = function(req, res, next) {
   if (!req.isAuthenticated()) {

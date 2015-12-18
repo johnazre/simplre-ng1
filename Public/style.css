@@ -63,3 +63,8 @@ md-toolbar > div.container{
 div > .login-button-homepage {
   color: black;
 }
+
+.dashboard-header{
+  width: 100%;
+  text-align: center;
+}
