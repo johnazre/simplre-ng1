@@ -62,4 +62,14 @@ angular.module('simplreApp').controller('DashboardCtrl', function($scope, $mdDia
         loading: false
     }
 
+    $scope.noteCounter = 0;
+    $scope.createNotification = function () {
+      $scope.noteCounter++;
+      console.log($scope.noteCounter);
+    }
+    $scope.clearNotification = function () {
+      $scope.noteCounter = 0;
+    }
+
+
 });

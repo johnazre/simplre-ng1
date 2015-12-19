@@ -1,2 +1,4 @@
 node_modules/
 secret.js
+bower_components/
+Public/Scripts/

@@ -9,3 +9,9 @@
     <highchart id="chart1" config="gciTotal"></highchart>
   </div>
 </div>
+
+<button class="btn btn-primary bt-lg" ng-click="createNotification()">Click me to add</button>
+<br><br>
+<notification-icon count="noteCounter" clear-trigger="click" >
+  <button class="btn btn-primary bt-lg" animation='bounce'>Click me to clear</button>
+</notification-icon>
