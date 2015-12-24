@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
-app.use(express.static(__dirname+'/public'));
+app.use(express.static(__dirname+'/Public'));
 app.listen(port, function () {
   console.log("Listening on port: " + port);
 });
