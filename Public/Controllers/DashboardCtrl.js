@@ -29,7 +29,7 @@ angular.module('simplreApp').controller('DashboardCtrl', function($scope, $mdDia
             data: [5, 7, 3,5, 7, 3,5, 7, 3,5, 7, 3]
         }],
         title: {
-            text: 'GCI Per Month'
+            text: 'Per Month'
         },
         loading: false
     };
@@ -57,7 +57,7 @@ angular.module('simplreApp').controller('DashboardCtrl', function($scope, $mdDia
             data: [100000,95000,110000,135000]
         }],
         title: {
-            text: 'GCI Per Year'
+            text: 'Per Year'
         },
         loading: false
     };

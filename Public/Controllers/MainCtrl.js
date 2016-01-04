@@ -19,9 +19,6 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
     link: '#',
     title: 'My Yearly Goals (Coming Soon)',
   },{
-    link: '#',
-    title: 'My Team (Coming Soon)',
-  },{
     link: 'user.profile',
     title: 'My Profile',
   }];
@@ -30,7 +27,7 @@ angular.module('simplreApp').controller('MainCtrl', function($scope, MainSvc, $m
   $scope.getUserData = function () {
     UserSvc.getUserData().then(function(res) {
       $scope.user = res.data;
-    })
+    });
   }();
 
   var originatorEv;
