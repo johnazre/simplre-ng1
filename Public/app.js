@@ -1,4 +1,4 @@
-var app = angular.module('simplreApp', ['ui.router', 'ngMaterial', 'ngAnimate', 'highcharts-ng', 'angular-notification-icons']);
+var app = angular.module('simplreApp', ['ui.router', 'ngMaterial', 'ngAnimate', 'highcharts-ng', 'angular-notification-icons', 'ui.bootstrap']);
 
 
 app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {

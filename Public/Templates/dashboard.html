@@ -1,17 +1,53 @@
 <div class="dashboard-header">
   <h1 class="md-display-3">Dashboard</h1>
 </div>
-<div class="row">
-  <div class="col-md-10 col-sm-10 col-lg-6">
-    <highchart id="gciPerMonth" config="gciPerMonth"></highchart>
-  </div>
-  <div class="col-md-10 col-sm-10 col-lg-6">
-    <highchart id="chart1" config="gciTotal"></highchart>
-  </div>
-</div>
 
-<button class="btn btn-primary bt-lg" ng-click="createNotification()">Click me to add</button>
+
+<uib-accordion close-others="oneAtATime">
+  <uib-accordion-group heading="GCI" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="gciPerMonth" config="gciPerMonth"></highchart>
+      </div>
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="chart1" config="gciTotal"></highchart>
+      </div>
+    </div>
+  </uib-accordion-group>
+  <uib-accordion-group heading="Lead Generation">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="leadGenWeekly" config="leadGenWeekly"></highchart>
+      </div>
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="leadGenMonthly" config="leadGenMonthly"></highchart>
+      </div>
+    </div>
+  </uib-accordion-group>
+  <uib-accordion-group heading="Closed Volume">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="closedVolMonthly" config="closedVolMonthly"></highchart>
+      </div>
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="activeListingVol" config="activeListingVol"></highchart>
+      </div>
+    </div>
+  </uib-accordion-group>
+  <uib-accordion-group heading="Pending Volume">
+    <div class="row">
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="pendingVolume" config="pendingVolume"></highchart>
+      </div>
+      <div class="col-md-10 col-sm-10 col-lg-6">
+        <highchart id="chart1" config="gciTotal"></highchart>
+      </div>
+    </div>
+  </uib-accordion-group>
+</uib-accordion>
+
+<!-- <button class="btn btn-primary bt-lg" ng-click="createNotification()">Click me to add</button>
 <br><br>
 <notification-icon count="noteCounter" clear-trigger="click" >
   <button class="btn btn-primary bt-lg" animation='bounce'>Click me to clear</button>
-</notification-icon>
+</notification-icon> -->

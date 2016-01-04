@@ -1,3 +1,5 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
 md-sidebar.md-locked-open{
   height: 700px !important;
 }
