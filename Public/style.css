@@ -71,3 +71,18 @@ div > .login-button-homepage {
   width: 100%;
   text-align: center;
 }
+
+.panel-body > form > button{
+  width: 100px;
+}
+
+.panel-body > form{
+  margin-bottom: 10px;
+}
+
+.tasklist-dash{
+}
+
+div.list-group > a > div > div{
+  list-style-type: none;
+}

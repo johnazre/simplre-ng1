@@ -219,5 +219,20 @@ angular.module('simplreApp').controller('DashboardCtrl', function($scope, $mdDia
       $scope.noteCounter = 0;
     };
 
+    $scope.newTask = {
+      name: '',
+      assignedTo: '',
+    }
+
+    $scope.taskDate = new Date();
+    $scope.taskList = [];
+    $scope.newTask = {};
+    $scope.addTask = function (newTask) {
+      console.log(newTask.name);
+      $scope.taskList.push(newTask);
+      console.log(newTask);
+      $scope.newTask = {};
+    };
+
 
 });

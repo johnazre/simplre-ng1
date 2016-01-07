@@ -18,7 +18,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
         locals: {
           closed: closed
         }
-      })
+      });
   };
 
   $scope.showAddListingModal = function(ev) {
@@ -38,7 +38,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose: true,
-      })
+      });
   };
 
     $scope.ShowListingModal = function(ev, thisListing) {
@@ -51,7 +51,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
         locals: {
           listing: thisListing
         }
-      })
+      });
     };
 
   $scope.showBuyerModal = function(ev, thisPurchase) {
@@ -64,7 +64,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
         locals: {
           purchase: thisPurchase
         }
-      })
+      });
   };
 
 //--------------------------------------------------------//
@@ -116,7 +116,7 @@ angular.module('simplreApp').controller('InventoryCtrl', function ($scope, Purch
 $scope.contractDateListing = new Date();
 $scope.projectedCloseDateListing = new Date();
 $scope.actualCloseDateListing = new Date();
-$scope.appraisalDateListing = new Date;
+$scope.appraisalDateListing = new Date();
 
   $scope.postListing = function(ev, user, client, address, status, source, listPrice, salePrice, contractDateListing, projectedCloseDateListing, actualCloseDateListing, appraisalDateListing, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, mortgageCompany, titleEscrowCompany) {
     console.log(ev);
@@ -148,7 +148,7 @@ $scope.appraisalDateListing = new Date;
   $scope.contractDate = new Date();
   $scope.projectedCloseDate = new Date();
   $scope.actualCloseDate = new Date();
-  $scope.appraisalDate = new Date;
+  $scope.appraisalDate = new Date();
 
   $scope.postPurchase = function(ev, user, client, address, status, listPrice, offerPrice, contractDate, projectedCloseDate, actualCloseDate, commissionPercentage, units, gci, companyDollar, royalty, referralPaid, eAndO, appraisalDate, mortgageCompany, titleEscrowCompany) {
     console.log(ev, "user",user);
@@ -183,7 +183,7 @@ $scope.appraisalDateListing = new Date;
     UserSvc.getUserData().then(function(res) {
       $scope.user = res.data;
       console.log($scope.user);
-    })
+    });
   }();
 
 

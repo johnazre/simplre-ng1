@@ -7,10 +7,23 @@
     <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h1 class="panel-title">Panel title</h1>
+          <h1 class="panel-title">Today's Todo List</h1>
         </div>
         <div class="panel-body">
-          Panel content
+          <ul class="list-group">
+            <button type="button" class="list-group-item">
+              <span class="badge">3</span>
+              Overdue Tasks
+            </button>
+            <button type="button" class="list-group-item">
+              <span class="badge">7</span>
+              Tasks Due Today
+            </button>
+            <button type="button" class="list-group-item">
+              <span class="badge">12</span>
+              Checklist items
+            </button>
+          </ul>
         </div>
       </div>
     </div>
@@ -20,10 +33,40 @@
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h2 class="panel-title">Remaining Tasks</h2>
+          <h2 class="panel-title">Tasks</h2>
         </div>
         <div class="panel-body">
-          Panel content
+          <form>
+            <input ng-model="newTask.name" placeholder="Task name"/>
+            <input style="margin-left:20px" type="text" ng-model="newTask.assignedTo" placeholder="Assigned To"/>
+            <md-datepicker md-placeholder="Enter date" ng-model="newTask.dueDate"></md-datepicker>
+            <button style="margin-left:20px" class="btn btn-primary" ng-click="addTask(newTask)">Add task</button>
+          </form>
+
+          <table class="table">
+            <thead >
+              <tr>
+                <th id="th-one" class="text-center" style="padding-left:40px;">Task Name</th>
+                <th id="th-two" class="text-right" style="padding=0;">Assigned To</th>
+                <th id="th-three" class="text-right" style="padding-right:18px;padding-left:0;">Due Date</th>
+              </tr>
+            </thead>
+          </table>
+          <div class="list-group">
+              <a href="#" class="list-group-item" ng-repeat="task in taskList">
+                <div class="row">
+                  <div class="col-xs-6">
+                    {{task.name}}
+                  </div>
+                  <div class="col-xs-4 text-center" style="padding:0;">
+                    {{task.assignedTo}}
+                  </div>
+                  <div class="col-xs-2 text-center" style="padding:0">
+                    {{task.dueDate | date}}
+                  </div>
+                </div>
+              </a>
+          </div>
         </div>
       </div>
     </div>
