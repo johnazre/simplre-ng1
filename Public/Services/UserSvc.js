@@ -1,24 +1,26 @@
 angular.module('simplreApp').service('UserSvc', function($http, $q) {
 
-  this.getUserData = function () {
+   var defer = $q.defer();
 
-    var defer = $q.defer();
+   var success = function(response){
+       defer.resolve(response);
+   };
+   
+   var error = function(error){
+       console.log(error);
+   };
+
+  this.getUserData = function () {
 
     $http({
       method: "GET",
       url: "/me"
-    }).then(function(response) {
-      defer.resolve(response);
-    }, function (error) {
-      console.log(error);
-    });
+    }).then(success, error);
 
     return defer.promise;
   };
 
   this.editUserData = function (id, name, email) {
-
-    var defer = $q.defer();
 
     $http({
       method: "PUT",
@@ -29,13 +31,9 @@ angular.module('simplreApp').service('UserSvc', function($http, $q) {
           email: email
         }
       }
-    }).then(function(response) {
-      defer.resolve(response);
-    }, function (error) {
-      console.log(error);
-    });
+    }).then(success, error);
 
-    return defer.promise;;
+    return defer.promise;
   };
 
 });

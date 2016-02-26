@@ -36,45 +36,45 @@ mongoose.connection.once('connected', function() {
 })
 
 //-----------Passport Facebook Authentication-----------//
-app.use(session({
-    secret: secret.session,
-    resave: false,
-    saveUninitialized: false,
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-
-passport.use(new FacebookStrategy({
-    clientID: secret.fb.clientID,
-    clientSecret: secret.fb.clientSecret,
-    callbackURL: "http://localhost:"+port+"/api/auth/callback",
-    profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified']
-    },  function(accessToken, refreshToken, profile, done) {
-  	    	process.nextTick(function(){
-  	    		User.findOne({'facebook.id': profile.id}, function(err, user){
-  	    			if(err)
-  	    				return done(err);
-  	    			if(user)
-  	    				return done(null, user);
-  	    			else {
-  	    				var newUser = new User();
-  	    				newUser.facebook.id = profile.id;
-  	    				newUser.facebook.token = accessToken;
-  	    				newUser.facebook.name = profile._json.first_name + " " + profile._json.last_name;
-                newUser.facebook.email = profile._json.email;
-
-  	    				newUser.save(function(err){
-  	    					if(err)
-  	    						throw err;
-  	    					return done(null, newUser);
-  	    				})
-  	    				console.log(user);
-  	    			}
-  	    		});
-  	    	});
-  	    }
-
-));
+// app.use(session({
+//     secret: secret.session,
+//     resave: false,
+//     saveUninitialized: false,
+// }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+//
+// passport.use(new FacebookStrategy({
+//     clientID: secret.fb.clientID,
+//     clientSecret: secret.fb.clientSecret,
+//     callbackURL: "http://localhost:"+port+"/api/auth/callback",
+//     profileFields: ['id', 'email', 'gender', 'link', 'locale', 'name', 'timezone', 'updated_time', 'verified']
+//     },  function(accessToken, refreshToken, profile, done) {
+//   	    	process.nextTick(function(){
+//   	    		User.findOne({'facebook.id': profile.id}, function(err, user){
+//   	    			if(err)
+//   	    				return done(err);
+//   	    			if(user)
+//   	    				return done(null, user);
+//   	    			else {
+//   	    				var newUser = new User();
+//   	    				newUser.facebook.id = profile.id;
+//   	    				newUser.facebook.token = accessToken;
+//   	    				newUser.facebook.name = profile._json.first_name + " " + profile._json.last_name;
+//                 newUser.facebook.email = profile._json.email;
+//
+//   	    				newUser.save(function(err){
+//   	    					if(err)
+//   	    						throw err;
+//   	    					return done(null, newUser);
+//   	    				})
+//   	    				console.log(user);
+//   	    			}
+//   	    		});
+//   	    	});
+//   	    }
+//
+// ));
 
 //-----------Passport Local Authentication-----------//
 
@@ -98,38 +98,38 @@ passport.use(new FacebookStrategy({
 
 //---------------------------------------------------//
 
-var requireAuth = function(req, res, next) {
-  if (!req.isAuthenticated()) {
-    res.redirect('/#/login');
-  }
-  else { next(); }
-};
-
-app.get("/api/auth/", passport.authenticate("facebook"));
-app.get("/api/auth/callback", passport.authenticate("facebook", {
-    successRedirect: "/#/user/dashboard",
-    failureRedirect: "/#/login"
-}));
-
-passport.serializeUser(function(user, done){
-    done(null, user);
-});
-passport.deserializeUser(function(obj, done){
-    done(null, obj);
-});
-
-app.get("/me", requireAuth, function(req, res){
-    res.json(req.user);
-});
-
-app.get("/checklogged", function(req, res){
-    res.send(req.isAuthenticated() ? req.user : '0');
-});
-
-app.get('/logout',function(req, res) {
-  req.logout();
-  res.redirect('/#/login');
-})
+// var requireAuth = function(req, res, next) {
+//   if (!req.isAuthenticated()) {
+//     res.redirect('/#/login');
+//   }
+//   else { next(); }
+// };
+//
+// app.get("/api/auth/", passport.authenticate("facebook"));
+// app.get("/api/auth/callback", passport.authenticate("facebook", {
+//     successRedirect: "/#/user/dashboard",
+//     failureRedirect: "/#/login"
+// }));
+//
+// passport.serializeUser(function(user, done){
+//     done(null, user);
+// });
+// passport.deserializeUser(function(obj, done){
+//     done(null, obj);
+// });
+//
+// app.get("/me", requireAuth, function(req, res){
+//     res.json(req.user);
+// });
+//
+// app.get("/checklogged", function(req, res){
+//     res.send(req.isAuthenticated() ? req.user : '0');
+// });
+//
+// app.get('/logout',function(req, res) {
+//   req.logout();
+//   res.redirect('/#/login');
+// })
 
 //-----------Client Endpoints-----------//
 app.get('/api/client', ClientCtrl.read);
