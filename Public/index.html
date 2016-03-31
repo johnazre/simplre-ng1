@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="Scripts/angular-material.layouts.css">
     <link rel="stylesheet" href="Scripts/angular-notification-icons.css">
     <link href='https://fonts.googleapis.com/css?family=Syncopate:700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://rawgit.com/formio/ngFormio/master/dist/formio-full.min.css" />
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -17,8 +18,10 @@
     <ui-view></ui-view>
 
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-rc.0/angular-animate.js"></script>
+    <script src="Scripts/formio-complete.js"></script>
     <script src="Scripts/angular-aria.js"></script>
     <script src="Scripts/hammer.min.js" charset="utf-8"></script>
     <script src="Scripts/angular-material.js" charset="utf-8"></script>
@@ -50,8 +53,10 @@
     <script src="Services/RegisterSvc.js" charset="utf-8"></script>
     <script src="Services/ClientSvc.js" charset="utf-8"></script>
     <script src="Services/UserSvc.js" charset="utf-8"></script>
+    <script src="Services/TaskSvc.js" charset="utf-8"></script>
 
     <script src="Directives/dashSidebar.js" charset="utf-8"></script>
+    <script src="Directives/dashboardGraphs.js" charset="utf-8"></script>
     <script src="Directives/topMenu.js" charset="utf-8"></script>
   </body>
 </html>

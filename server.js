@@ -18,6 +18,7 @@ var PurchaseCtrl = require('./Server-Assets/Controllers/PurchaseCtrl');
 var ClientCtrl = require('./Server-Assets/Controllers/ClientCtrl');
 var UserCtrl = require('./Server-Assets/Controllers/UserCtrl');
 var User = require('./Server-Assets/Models/User')
+var TaskCtrl = require('./Server-Assets/Controllers/TaskCtrl')
 
 //----------Fluff------------//
 app.use(bodyParser.urlencoded({extended:false}));
@@ -136,7 +137,7 @@ app.get('/api/client', ClientCtrl.read);
 app.get('/api/client/:id', ClientCtrl.readOne);
 app.post('/api/client', ClientCtrl.create);
 app.put('/api/client/:id', ClientCtrl.update);
-app.delete('/api/client', ClientCtrl.delete);
+app.delete('/api/client/:id', ClientCtrl.delete);
 
 //-----------Listing Contract Endpoints-----------//
 app.get('/api/listing', ListingCtrl.read);
@@ -158,3 +159,10 @@ app.get('/api/user/:id', UserCtrl.readOne);
 // app.post('/api/user', UserCtrl.create);
 app.put('/api/user/:id', UserCtrl.update);
 app.delete('/api/user', UserCtrl.delete);
+
+//-----------Task Endpoints-----------//
+app.get('/api/task', TaskCtrl.read);
+app.get('/api/task/:id', TaskCtrl.readOne);
+app.post('/api/task', TaskCtrl.create);
+app.put('/api/task/:id', TaskCtrl.update);
+app.delete('/api/task', TaskCtrl.delete);

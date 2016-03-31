@@ -20,7 +20,7 @@
               Tasks Due Today
             </button>
             <button type="button" class="list-group-item">
-              <span class="badge">12</span>
+              <span class="badge">{{taskList.length}}</span>
               Checklist items
             </button>
           </ul>
@@ -39,6 +39,7 @@
           <form>
             <input ng-model="newTask.name" placeholder="Task name"/>
             <input style="margin-left:20px" type="text" ng-model="newTask.assignedTo" placeholder="Assigned To"/>
+            <input style="margin-left:20px" type="text" ng-model="newTask.description" placeholder="Description"/>
             <md-datepicker md-placeholder="Enter date" ng-model="newTask.dueDate"></md-datepicker>
             <button style="margin-left:20px" class="btn btn-primary" ng-click="addTask(newTask)">Add task</button>
           </form>
@@ -75,48 +76,7 @@
 
 
 
-<uib-accordion close-others="oneAtATime">
-  <uib-accordion-group heading="GCI (Gross Commission Income)" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-    <div class="row">
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="gciPerMonth" config="gciPerMonth"></highchart>
-      </div>
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="chart1" config="gciTotal"></highchart>
-      </div>
-    </div>
-  </uib-accordion-group>
-  <uib-accordion-group heading="Lead Generation">
-    <div class="row">
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="leadGenWeekly" config="leadGenWeekly"></highchart>
-      </div>
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="leadGenMonthly" config="leadGenMonthly"></highchart>
-      </div>
-    </div>
-  </uib-accordion-group>
-  <uib-accordion-group heading="Closed Volume">
-    <div class="row">
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="closedVolMonthly" config="closedVolMonthly"></highchart>
-      </div>
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="activeListingVol" config="activeListingVol"></highchart>
-      </div>
-    </div>
-  </uib-accordion-group>
-  <uib-accordion-group heading="Pending Volume">
-    <div class="row">
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="pendingVolume" config="pendingVolume"></highchart>
-      </div>
-      <div class="col-md-10 col-sm-10 col-lg-6">
-        <highchart id="chart1" config="gciTotal"></highchart>
-      </div>
-    </div>
-  </uib-accordion-group>
-</uib-accordion>
+<dashboard-graphs></dashboard-graphs>
 
 <!-- <button class="btn btn-primary bt-lg" ng-click="createNotification()">Click me to add</button>
 <br><br>

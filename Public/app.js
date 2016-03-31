@@ -1,7 +1,7 @@
-var app = angular.module('simplreApp', ['ui.router', 'ngMaterial', 'ngAnimate', 'highcharts-ng', 'angular-notification-icons', 'ui.bootstrap']);
+var app2 = angular.module('simplreApp', ['ui.router', 'ngMaterial', 'ngAnimate', 'highcharts-ng', 'angular-notification-icons', 'ui.bootstrap', 'formio']);
 
 
-app.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
+app2.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $mdThemingProvider) {
 
   // var checkLoggedin = function($q, $http, $location){
   //   // Initialize a new promise
